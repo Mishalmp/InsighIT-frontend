@@ -1,0 +1,21 @@
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-220px * 5));
+    }
+}
+.scrolling-wrapper {
+    display: flex;
+    overflow: hidden;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+.scrolling-content {
+    display: flex;
+    animation: scroll 30s linear infinite;
+}
+.scrolling-content:hover {
+    animation-play-state: paused;
+}
