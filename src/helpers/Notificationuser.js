@@ -2,7 +2,7 @@ import { w3cwebsocket as W3CWebSocket } from 'websocket';
 import { wsurl } from "../constants/constants";
 
 const connectWebSocket = (userId, setNotifications, showNotification) => {
-    const client  = new W3CWebSocket(`${wsurl}ws/notifications/${16}/`);
+    const client  = new W3CWebSocket(`${wsurl}ws/notifications/${userId}/`);
 
     client.onopen = (e) => {
       console.log("WebSocket connection opened:", e);

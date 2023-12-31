@@ -36,20 +36,20 @@ function UserProtected() {
     const { userinfo } = useSelector((state) => state.user);
 
 
-    useEffect(() => {
-        if (token) {
-            const decoded = jwtDecode(token);
+    // useEffect(() => {
+    //     if (token) {
+    //         const decoded = jwtDecode(token);
 
-            if (decoded.role === 'user') {
-                const cleanupWebSocket = connectWebSocket(userinfo.id, setNotifications, showNotification);
+    //         if (decoded.role === 'user') {
+    //             const cleanupWebSocket = connectWebSocket(userinfo.id, setNotifications, showNotification);
 
-                return () => {
-                    cleanupWebSocket();
-                };
-            }
-        }
-        // RefreshToken()
-    }, [token, userinfo.id]);
+    //             return () => {
+    //                 cleanupWebSocket();
+    //             };
+    //         }
+    //     }
+    //     // RefreshToken()
+    // }, [token, userinfo.id]);
 
     if (token) {
         const decoded = jwtDecode(token);
