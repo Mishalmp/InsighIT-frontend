@@ -32,7 +32,11 @@ function Topiccreate({isOpen,onClose,fetchTopics,onSubmit,topics}) {
             toast.error("fields cannot be empty")
           
             return false
+        }if(topic.desc.length > 100){
+          toast.error("description cannot more than 100 characters")
+          return false
         }
+
         if (!isNaN(topic.topic) || !isNaN(topic.desc) ){
             toast.error("it Should Characters")
             
@@ -88,7 +92,7 @@ function Topiccreate({isOpen,onClose,fetchTopics,onSubmit,topics}) {
             <textarea
               name="desc"
               value={topic.desc}
-              placeholder="write desc..."
+              placeholder="write desc...(max 100 characters)"
               onChange={(e) => settopic({ ...topic, desc: e.target.value })}
               
               cols="30"
