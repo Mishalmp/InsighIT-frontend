@@ -13,7 +13,6 @@ import {useGoogleLogin} from '@react-oauth/google';
 import { Loader } from "../../components/Loading/Loader";
 import { UserGoogleSignup } from "../../services/UserApi";
 import { jwtDecode } from "jwt-decode";
-import NavBar from "../../components/Userside/NavBarhome/NavBar";
 import { GetPremiuminfo } from '../../services/PremiumApi';
 import { UserSignin,UserGoogleSignin,GetUserInfo } from '../../services/UserApi';
 import { setUserInfo,setPremiumUserInfo } from '../../Redux/UserSlice';
@@ -23,6 +22,7 @@ import {
   Card,CardBody,
 
 } from "@material-tailwind/react";
+import { accountsapi } from "../../constants/constants";
 function Signup() {
   const navigate=useNavigate()
   const location = useLocation()
@@ -189,19 +189,19 @@ function Signup() {
 
   const FormHandlerSignup = async (e)=> {
 
-    console.log(user,'1111111111111')
+    // console.log(user,'1111111111111')
     e.preventDefault();
     if (ValidateForm()){
       handleLoading()
-      console.log(user,'2222244444444444442')
+      // console.log(user,'2222244444444444442')
       try{
         const response = await axios.post(
-          'http://127.0.0.1:8000/accounts/register/',
+          `${accountsapi}accounts/register/`,
           user
 
           
         )
-        console.log(response.data,'2222222');
+        // console.log(response.data,'2222222');
     
 
         setUser({
