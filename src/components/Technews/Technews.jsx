@@ -15,16 +15,14 @@ import "../../pages/Home.css";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
 import { CardPlacehoderSkeleton } from "../Skeletons/News";
 import { Loader } from "../Loading/Loader";
+import { aiurl } from "../../constants/constants";
+
 function Technews() {
   const [newss, setNews] = useState();
 
   const fetchdata = async () => {
-    let response = await fetch(
-      "https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=779335093dc943fc916cff1ac2af4308"
-    );
-
+    let response = await fetch(`${aiurl}get_technology_news/`);
     let data = await response.json();
-
     setNews(data.articles);
   };
   useEffect(() => {
@@ -47,7 +45,7 @@ function Technews() {
       </div>
 
       {newss.length > 0 ? (
-        <div className="flex flex-wrap overflow-y-auto mt-10 justify-start gap-4">
+        <div className="flex flex-wrap overflow-x-hidden mt-10 justify-start gap-4">
           {newss.slice(0, 8).map((news, index) => (
             <Card key={index} className="w-[20rem]  mb-10 h-[28rem]">
               {news.urlToImage ? (
