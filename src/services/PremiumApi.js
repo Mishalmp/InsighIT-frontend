@@ -3,7 +3,7 @@ import { RefreshToken } from "./UserApi";
 
 
 const CreatepremiumUserinfo=(values)=>{
-    return PremiumAxiosInstant.post("/premiumuserinfo/",values,{
+    return PremiumAxiosInstant.post("premiumuserinfo/",values,{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {
@@ -14,7 +14,7 @@ const CreatepremiumUserinfo=(values)=>{
     });
 }
 const CreateExperiences=(values)=>{
-    return PremiumAxiosInstant.post("/experiences/",values,{
+    return PremiumAxiosInstant.post("experiences/",values,{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {
@@ -25,7 +25,7 @@ const CreateExperiences=(values)=>{
     });
 }
 const CreateQualifications=(values)=>{
-    return PremiumAxiosInstant.post("/qualifications/",values,{
+    return PremiumAxiosInstant.post("qualifications/",values,{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {
@@ -37,7 +37,7 @@ const CreateQualifications=(values)=>{
 }
 
 const GetPremiuminfolist=(searchQuery,filter)=>{
-    return PremiumAxiosInstant.get(`/premiumuserinfolist/?search=${searchQuery}&filter=${filter}`,{
+    return PremiumAxiosInstant.get(`premiumuserinfolist/?search=${searchQuery}&filter=${filter}`,{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {
@@ -50,7 +50,7 @@ const GetPremiuminfolist=(searchQuery,filter)=>{
 
 
 const GetPremiuminfo=(id)=>{
-    return PremiumAxiosInstant.get(`/premiumuserinfoview/${id}/`,{
+    return PremiumAxiosInstant.get(`premiumuserinfoview/${id}/`,{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {
@@ -62,7 +62,7 @@ const GetPremiuminfo=(id)=>{
 }
 
 const GetPremiuminfobyUser=(id)=>{
-    return PremiumAxiosInstant.get(`/premiumuserinfouserview/${id}/`,{
+    return PremiumAxiosInstant.get(`premiumuserinfouserview/${id}/`,{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {
@@ -74,7 +74,7 @@ const GetPremiuminfobyUser=(id)=>{
 }
 
 const UpdatePremiuminfo=(id,values)=>{
-    return PremiumAxiosInstant.patch(`/premiumuserinfoview/${id}/`,values,{
+    return PremiumAxiosInstant.patch(`premiumuserinfoview/${id}/`,values,{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {
@@ -88,7 +88,7 @@ const UpdatePremiuminfo=(id,values)=>{
 
 
 const createpremiumrequest=(values)=>{
-    return PremiumAxiosInstant.post("/premiumrequestcreate/",values,{
+    return PremiumAxiosInstant.post("premiumrequestcreate/",values,{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {
@@ -100,7 +100,7 @@ const createpremiumrequest=(values)=>{
 }
 
 const PremiumReqList=()=>{
-    return PremiumAxiosInstant.get("/premiumuserrequestlist/",{
+    return PremiumAxiosInstant.get("premiumuserrequestlist/",{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {
@@ -112,7 +112,7 @@ const PremiumReqList=()=>{
 }
 
 const PremiumReqView=(id)=>{
-    return PremiumAxiosInstant.get(`/premiumuserreqview/${id}/`,{
+    return PremiumAxiosInstant.get(`premiumuserreqview/${id}/`,{
         withCredentials:true
 
     }).catch((error) => {
@@ -125,7 +125,7 @@ const PremiumReqView=(id)=>{
 }
 
 const PremiumReqUpdate=(id,values)=>{
-    return PremiumAxiosInstant.patch(`/premiumuserreqview/${id}/`,values,{
+    return PremiumAxiosInstant.patch(`premiumuserreqview/${id}/`,values,{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {

@@ -4,7 +4,7 @@ import { RefreshToken } from "./UserApi";
 
 
 const CreateBlog=(values)=>{
-    return BlogsAxiosInstant.post("/blogs/",values,{
+    return BlogsAxiosInstant.post("blogs/",values,{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {
@@ -29,7 +29,7 @@ const CreateCommunity=(values)=>{
 
 const ListBlogs=(searchQuery,topic,sort)=>{
 
-        return BlogsAxiosInstant.get(`/blogslist/?search=${searchQuery}&topic=${topic}&sort=${sort}`,{
+        return BlogsAxiosInstant.get(`blogslist/?search=${searchQuery}&topic=${topic}&sort=${sort}`,{
        
             withCredentials:true
         }).catch((error) => {
@@ -43,7 +43,7 @@ const ListBlogs=(searchQuery,topic,sort)=>{
 }
 
 const TrendingBlogs=()=>{
-    return BlogsAxiosInstant.get("/trendingblogs/",{
+    return BlogsAxiosInstant.get("trendingblogs/",{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {
@@ -55,7 +55,7 @@ const TrendingBlogs=()=>{
 }
 
 const GetBlogDetail=(blog_id)=>{
-    return BlogsAxiosInstant.get(`/blogdetail/${blog_id}/`,{
+    return BlogsAxiosInstant.get(`blogdetail/${blog_id}/`,{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {
@@ -67,7 +67,7 @@ const GetBlogDetail=(blog_id)=>{
 }
 
 const UpdateBlog=(blog_id,values)=>{
-    return BlogsAxiosInstant.patch(`/blogdetail/${blog_id}/`,values,{
+    return BlogsAxiosInstant.patch(`blogdetail/${blog_id}/`,values,{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {
@@ -79,7 +79,7 @@ const UpdateBlog=(blog_id,values)=>{
 }
 
 const DeleteBlog=(blog_id)=>{
-    return BlogsAxiosInstant.delete(`/blogdetail/${blog_id}/`,{
+    return BlogsAxiosInstant.delete(`blogdetail/${blog_id}/`,{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {
@@ -197,7 +197,7 @@ const TrendingTopics=()=>{
 }
 
 const CreateComment=(values)=>{
-    return BlogsAxiosInstant.post("/commentslistcreate/",values,{
+    return BlogsAxiosInstant.post("commentslistcreate/",values,{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {
@@ -209,7 +209,7 @@ const CreateComment=(values)=>{
 }
 
 const ListComment=(blog_id)=>{
-    return BlogsAxiosInstant.get(`/commentslist/${blog_id}/`,{
+    return BlogsAxiosInstant.get(`commentslist/${blog_id}/`,{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {
@@ -221,7 +221,7 @@ const ListComment=(blog_id)=>{
 }
 
 const DeleteComment=(id)=>{
-    return BlogsAxiosInstant.delete(`/comment-retrieve-destroy/${id}/`,{
+    return BlogsAxiosInstant.delete(`comment-retrieve-destroy/${id}/`,{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {
@@ -233,7 +233,7 @@ const DeleteComment=(id)=>{
 }
 
 const LikeBlog=(values)=>{
-    return BlogsAxiosInstant.post("/likes/",values,{
+    return BlogsAxiosInstant.post("likes/",values,{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {
@@ -247,7 +247,7 @@ const LikeBlog=(values)=>{
 
 const UnlikeBlog=(values)=>{
     
-    return BlogsAxiosInstant.delete(`/likeview/`,{ data: values },{
+    return BlogsAxiosInstant.delete(`likeview/`,{ data: values },{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {
@@ -259,7 +259,7 @@ const UnlikeBlog=(values)=>{
 }
 
 const GetBlogLike=(blogId,userId)=>{
-    return BlogsAxiosInstant.get(`/likeview/?blog=${blogId}&user=${userId}`,{
+    return BlogsAxiosInstant.get(`likeview/?blog=${blogId}&user=${userId}`,{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {
@@ -271,7 +271,7 @@ const GetBlogLike=(blogId,userId)=>{
 }
 
 const ReportBlogs=(values)=>{
-    return BlogsAxiosInstant.post("/reportblogs/",values,{
+    return BlogsAxiosInstant.post("reportblogs/",values,{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {
@@ -284,7 +284,7 @@ const ReportBlogs=(values)=>{
 
 
 const ReportBlogList=()=>{
-    return BlogsAxiosInstant.get("/reportbloglist/",{
+    return BlogsAxiosInstant.get("reportbloglist/",{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {
@@ -296,7 +296,7 @@ const ReportBlogList=()=>{
 }
 
 const Reportupdate=(id,values)=>{
-    return BlogsAxiosInstant.patch(`/reportview/${id}/`,values,{
+    return BlogsAxiosInstant.patch(`reportview/${id}/`,values,{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {
@@ -309,7 +309,7 @@ const Reportupdate=(id,values)=>{
 
 
 const CreateSaved=(values)=>{
-    return BlogsAxiosInstant.post(`/createsaved/`,values,{
+    return BlogsAxiosInstant.post(`createsaved/`,values,{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {
@@ -321,7 +321,7 @@ const CreateSaved=(values)=>{
 }
 
 const ListSaved=(user_id,searchQuery)=>{
-    return BlogsAxiosInstant.get(`/listsaved/${user_id}/?search=${searchQuery}`,{
+    return BlogsAxiosInstant.get(`listsaved/${user_id}/?search=${searchQuery}`,{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {
@@ -333,7 +333,7 @@ const ListSaved=(user_id,searchQuery)=>{
 }
 
 const IsSave=(user_id,blog_id)=>{
-    return BlogsAxiosInstant.get(`/saveview/?user_id=${user_id}&blog_id=${blog_id}`,{
+    return BlogsAxiosInstant.get(`saveview/?user_id=${user_id}&blog_id=${blog_id}`,{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {
@@ -345,7 +345,7 @@ const IsSave=(user_id,blog_id)=>{
 }
 
 const Unsave=(user_id,blog_id)=>{
-    return BlogsAxiosInstant.delete(`/saveview/?user_id=${user_id}&blog_id=${blog_id}`,{
+    return BlogsAxiosInstant.delete(`saveview/?user_id=${user_id}&blog_id=${blog_id}`,{
         withCredentials:true
     }).catch((error) => {
       if (error.response.status === 401) {
