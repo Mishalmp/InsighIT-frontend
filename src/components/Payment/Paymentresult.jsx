@@ -86,7 +86,7 @@ function Paymentresult() {
                 <>
                 
                     <img src={Paymentsuccess} className='w-[50rem]' alt="payment success" />
-                    <Link to='/User/Home'>
+                    <Link to='/User/Home/'>
                         <Button size="lg" variant="text" className="flex items-center ml-64 gap-2 text-deep-orange-900 font-bold">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"

@@ -183,124 +183,12 @@ function Sidebar() {
                 </div>
               ))}
 
-              <div
-                // key={premium.id}
-                role="button"
-                className="flex items-center w-full p-3 leading-tight transition-all rounded-lg bg-gray-50 outline-none text-start hover:bg-blue-gray-100 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
-              >
-                <div className="grid mr-4 place-items-center">
-                  <img
-                    alt="candice"
-                    src="https://docs.material-tailwind.com/img/face-1.jpg"
-                    className="relative inline-block h-12 w-12 !rounded-full object-cover object-center"
-                  />
-                </div>
-                <div className="flex-col">
-                  <h6 className="block font-sans text-base antialiased font-semibold leading-relaxed tracking-normal text-blue-gray-900">
-                    Ashiq Parammel{" "}
-                    <VerifiedIcon
-                      color="primary"
-                      fontSize="small"
-                      className="-mt-1 ml-2"
-                    />
-                  </h6>
-                  <p className="text-gray-700 text-md font-serif">
-                    ashiqparammel@gmail.com
-                  </p>
-                  <p className="block font-sans mt-2 text-sm antialiased font-normal leading-normal text-blue-gray-700">
-                    web developer
-                  </p>
-                </div>
-              </div>
+             
 
-              <div
-                // key={premium.id}
-                role="button"
-                className="flex items-center w-full p-3 leading-tight transition-all rounded-lg bg-gray-50 outline-none text-start hover:bg-blue-gray-100 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
-              >
-                <div className="grid mr-4 place-items-center">
-                  <img
-                    alt="candice"
-                    src="https://docs.material-tailwind.com/img/face-1.jpg"
-                    className="relative inline-block h-12 w-12 !rounded-full object-cover object-center"
-                  />
-                </div>
-                <div className="flex-col">
-                  <h6 className="block font-sans text-base antialiased font-semibold leading-relaxed tracking-normal text-blue-gray-900">
-                    Ashiq Parammel{" "}
-                    <VerifiedIcon
-                      color="primary"
-                      fontSize="small"
-                      className="-mt-1 ml-2"
-                    />
-                  </h6>
-                  <p className="text-gray-700 text-md font-serif">
-                    ashiqparammel@gmail.com
-                  </p>
-                  <p className="block font-sans mt-2 text-sm antialiased font-normal leading-normal text-blue-gray-700">
-                    web developer
-                  </p>
-                </div>
-              </div>
-              <div
-                // key={premium.id}
-                role="button"
-                className="flex items-center w-full p-3 leading-tight transition-all rounded-lg bg-gray-50 outline-none text-start hover:bg-blue-gray-100 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
-              >
-                <div className="grid mr-4 place-items-center">
-                  <img
-                    alt="candice"
-                    src="https://docs.material-tailwind.com/img/face-1.jpg"
-                    className="relative inline-block h-12 w-12 !rounded-full object-cover object-center"
-                  />
-                </div>
-                <div className="flex-col">
-                  <h6 className="block font-sans text-base antialiased font-semibold leading-relaxed tracking-normal text-blue-gray-900">
-                    Ashiq Parammel{" "}
-                    <VerifiedIcon
-                      color="primary"
-                      fontSize="small"
-                      className="-mt-1 ml-2"
-                    />
-                  </h6>
-                  <p className="text-gray-700 text-md font-serif">
-                    ashiqparammel@gmail.com
-                  </p>
-                  <p className="block font-sans mt-2 text-sm antialiased font-normal leading-normal text-blue-gray-700">
-                    web developer
-                  </p>
-                </div>
-              </div>
+            
+             
 
-              <div
-                // key={premium.id}
-                role="button"
-                className="flex items-center w-full p-3 leading-tight transition-all rounded-lg bg-gray-50 outline-none text-start hover:bg-blue-gray-100 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
-              >
-                <div className="grid mr-4 place-items-center">
-                  <img
-                    alt="candice"
-                    src="https://docs.material-tailwind.com/img/face-1.jpg"
-                    className="relative inline-block h-12 w-12 !rounded-full object-cover object-center"
-                  />
-                </div>
-                <div className="flex-col">
-                  <h6 className="block font-sans text-base antialiased font-semibold leading-relaxed tracking-normal text-blue-gray-900">
-                    Ashiq Parammel{" "}
-                    <VerifiedIcon
-                      color="primary"
-                      fontSize="small"
-                      className="-mt-1 ml-2"
-                    />
-                  </h6>
-                  <p className="text-gray-700 text-md font-serif">
-                    ashiqparammel@gmail.com
-                  </p>
-                  <p className="block font-sans mt-2 text-sm antialiased font-normal leading-normal text-blue-gray-700">
-                    web developer
-                  </p>
-                </div>
-              </div>
+             
             </ul>
           </CardBody>
         </Card>
@@ -372,124 +260,12 @@ function Sidebar() {
               </div>
             ))}
 
-            <div
-              // key={premium.id}
-              role="button"
-              className="flex items-center w-full p-3 leading-tight transition-all rounded-lg bg-gray-50 outline-none text-start hover:bg-blue-gray-100 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
-            >
-              <div className="grid mr-4 place-items-center">
-                <img
-                  alt="candice"
-                  src="https://docs.material-tailwind.com/img/face-1.jpg"
-                  className="relative inline-block h-12 w-12 !rounded-full object-cover object-center"
-                />
-              </div>
-              <div className="flex-col">
-                <h6 className="block font-sans text-base antialiased font-semibold leading-relaxed tracking-normal text-blue-gray-900">
-                  Ashiq Parammel{" "}
-                  <VerifiedIcon
-                    color="primary"
-                    fontSize="small"
-                    className="-mt-1 ml-2"
-                  />
-                </h6>
-                <p className="text-gray-700 text-md font-serif">
-                  ashiqparammel@gmail.com
-                </p>
-                <p className="block font-sans mt-2 text-sm antialiased font-normal leading-normal text-blue-gray-700">
-                  web developer
-                </p>
-              </div>
-            </div>
+           
 
-            <div
-              // key={premium.id}
-              role="button"
-              className="flex items-center w-full p-3 leading-tight transition-all rounded-lg bg-gray-50 outline-none text-start hover:bg-blue-gray-100 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
-            >
-              <div className="grid mr-4 place-items-center">
-                <img
-                  alt="candice"
-                  src="https://docs.material-tailwind.com/img/face-1.jpg"
-                  className="relative inline-block h-12 w-12 !rounded-full object-cover object-center"
-                />
-              </div>
-              <div className="flex-col">
-                <h6 className="block font-sans text-base antialiased font-semibold leading-relaxed tracking-normal text-blue-gray-900">
-                  Ashiq Parammel{" "}
-                  <VerifiedIcon
-                    color="primary"
-                    fontSize="small"
-                    className="-mt-1 ml-2"
-                  />
-                </h6>
-                <p className="text-gray-700 text-md font-serif">
-                  ashiqparammel@gmail.com
-                </p>
-                <p className="block font-sans mt-2 text-sm antialiased font-normal leading-normal text-blue-gray-700">
-                  web developer
-                </p>
-              </div>
-            </div>
-            <div
-              // key={premium.id}
-              role="button"
-              className="flex items-center w-full p-3 leading-tight transition-all rounded-lg bg-gray-50 outline-none text-start hover:bg-blue-gray-100 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
-            >
-              <div className="grid mr-4 place-items-center">
-                <img
-                  alt="candice"
-                  src="https://docs.material-tailwind.com/img/face-1.jpg"
-                  className="relative inline-block h-12 w-12 !rounded-full object-cover object-center"
-                />
-              </div>
-              <div className="flex-col">
-                <h6 className="block font-sans text-base antialiased font-semibold leading-relaxed tracking-normal text-blue-gray-900">
-                  Ashiq Parammel{" "}
-                  <VerifiedIcon
-                    color="primary"
-                    fontSize="small"
-                    className="-mt-1 ml-2"
-                  />
-                </h6>
-                <p className="text-gray-700 text-md font-serif">
-                  ashiqparammel@gmail.com
-                </p>
-                <p className="block font-sans mt-2 text-sm antialiased font-normal leading-normal text-blue-gray-700">
-                  web developer
-                </p>
-              </div>
-            </div>
+           
+           
 
-            <div
-              // key={premium.id}
-              role="button"
-              className="flex items-center w-full p-3 leading-tight transition-all rounded-lg bg-gray-50 outline-none text-start hover:bg-blue-gray-100 hover:bg-opacity-80 hover:text-blue-gray-900 focus:bg-blue-gray-50 focus:bg-opacity-80 focus:text-blue-gray-900 active:bg-blue-gray-50 active:bg-opacity-80 active:text-blue-gray-900"
-            >
-              <div className="grid mr-4 place-items-center">
-                <img
-                  alt="candice"
-                  src="https://docs.material-tailwind.com/img/face-1.jpg"
-                  className="relative inline-block h-12 w-12 !rounded-full object-cover object-center"
-                />
-              </div>
-              <div className="flex-col">
-                <h6 className="block font-sans text-base antialiased font-semibold leading-relaxed tracking-normal text-blue-gray-900">
-                  Ashiq Parammel{" "}
-                  <VerifiedIcon
-                    color="primary"
-                    fontSize="small"
-                    className="-mt-1 ml-2"
-                  />
-                </h6>
-                <p className="text-gray-700 text-md font-serif">
-                  ashiqparammel@gmail.com
-                </p>
-                <p className="block font-sans mt-2 text-sm antialiased font-normal leading-normal text-blue-gray-700">
-                  web developer
-                </p>
-              </div>
-            </div>
+           
           </ul>
         </CardBody>
       </Card>

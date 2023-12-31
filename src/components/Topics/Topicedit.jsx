@@ -28,6 +28,7 @@ function Topicedit({isOpen,onClose,fetchTopics,onSubmit,topics,topic,settopic,pr
           
             return false
         }
+        
         if(topic.desc.length > 100){
           toast.error("description cannot more than 100 characters")
           return false

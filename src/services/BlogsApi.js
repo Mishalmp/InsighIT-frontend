@@ -148,8 +148,7 @@ const CommunitiesByUser=(user_id)=>{
 }
 
 const CreateTopics=(values)=>{
-  console.log(values,'qqqqqqq');
-  
+
     return BlogsAxiosInstant.post("topics/",values,{
         withCredentials:true
     }).catch((error) => {
