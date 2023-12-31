@@ -14,8 +14,9 @@ import "slick-carousel/slick/slick-theme.css";
 import "../../pages/Home.css";
 import WhatshotIcon from "@mui/icons-material/Whatshot";
 import { CardPlacehoderSkeleton } from "../Skeletons/News";
+import { Loader } from "../Loading/Loader";
 function Technews() {
-  const [newss, setNews] = useState([]);
+  const [newss, setNews] = useState();
 
   const fetchdata = async () => {
     let response = await fetch(
@@ -29,6 +30,10 @@ function Technews() {
   useEffect(() => {
     fetchdata();
   }, []);
+
+  if (!newss){
+    return <Loader/>
+  }
 
   // console.log(newss, "newss");
 
