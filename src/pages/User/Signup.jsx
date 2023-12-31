@@ -73,7 +73,7 @@ function Signup() {
 
         if (decoded.role === 'user'){
           if (decoded.is_active){
-            navigate('/user/Home/')
+            navigate('/User/Home/')
 
           }else{
             toast.error("Your account is not active ,please try again later")
