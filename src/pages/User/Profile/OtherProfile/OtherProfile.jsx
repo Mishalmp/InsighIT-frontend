@@ -269,8 +269,8 @@ function OtherProfile() {
               </CardHeader>
             </div>
 
-            <CardBody className="text-center relative">
-              <div className="flex gap-4 ml-36">
+            <CardBody className="text-center">
+              <div className="flex  ml-20  justify-around ">
                 <Typography variant="h4" color="blue-gray" className="mb-2 ">
                   {author.first_name} {author.last_name}{" "}
                   {author.is_premium && (
