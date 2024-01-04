@@ -34,7 +34,6 @@ export default function HomePage() {
       try {
         const response = await TrendingBlogs();
         setBlogs(response.data);
-        console.log(response.data, "responsss");
       } catch (error) {
         console.error("Error! fetching trending blogs", error);
       }
@@ -44,7 +43,6 @@ export default function HomePage() {
       try {
         const response = await TrendingTopics();
         setTopics(response.data);
-        console.log(response.data, "responsss");
       } catch (error) {
         console.error("Error! fetching trending blogs", error);
       }
