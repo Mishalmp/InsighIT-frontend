@@ -72,7 +72,7 @@ function Blogdetail() {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isSaved, SetisSaved] = useState(false);
   const [isContentVisible, setIsContentVisible] = useState(true);
-  
+  const [is_subscriber,setis_subscriber] = useState(true)
 
   const [ishidemodal, setishidemodal] = useState(false);
 
@@ -141,6 +141,7 @@ function Blogdetail() {
         );
 
         console.log(res_ponse, "response is content visible");
+        setis_subscriber(res_ponse.data.is_subscriber)
         if (!res_ponse.data.is_subscriber) {
           setIsContentVisible(false);
         }
@@ -251,7 +252,6 @@ function Blogdetail() {
       toast.success("Blog deleted Successfully");
       navigate(`/User/myblogs/`,{state:{userId:userinfo.id}});
 
-      console.log(response.data, "ressdsds");
     } catch (error) {
       toast.error("Error Occured while deleting");
       console.error("Error deleting blog:", error);
@@ -287,13 +287,21 @@ function Blogdetail() {
     };
 
     try {
-      const resp = await CreateFollowing(values);
-      toast.success("followed successfully");
+      if(blog.user_id.is_premium && !is_subscriber){
+        
+        setIsContentVisible(false);
+      }else{
+        const resp = await CreateFollowing(values);
+        toast.success("followed successfully");
+  
+        sendNotification(notificationMessage,blog.user_id.id)
+  
+        await NotificationCreate(noti_values);
+        setIs_following(true);
 
-      sendNotification(notificationMessage,blog.user_id.id)
+      }
 
-      await NotificationCreate(noti_values);
-      setIs_following(true);
+ 
     } catch (error) {
       console.error(error);
     }
