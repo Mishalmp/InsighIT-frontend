@@ -131,17 +131,19 @@ function Blogdetail() {
       console.log(response.data, "response data");
       setBlog(response.data);
 
+      const res_ponse = await IsSubscriber(
+        userinfo.id,
+        response.data.user_id.id
+      );
+
+      console.log(res_ponse, "response is content visible");
+      setis_subscriber(res_ponse.data.is_subscriber)
+
       if (
         userinfo.id !== response.data.user_id.id &&
         response.data.is_premium_blog
       ) {
-        const res_ponse = await IsSubscriber(
-          userinfo.id,
-          response.data.user_id.id
-        );
-
-        console.log(res_ponse, "response is content visible");
-        setis_subscriber(res_ponse.data.is_subscriber)
+    
         if (!res_ponse.data.is_subscriber) {
           setIsContentVisible(false);
         }
@@ -287,8 +289,8 @@ function Blogdetail() {
     };
 
     try {
+      console.log(blog.user_id.is_premium ,is_subscriber,"hiideeeeeeeeee");
       if(blog.user_id.is_premium && !is_subscriber){
-        
         setIsContentVisible(false);
       }else{
         const resp = await CreateFollowing(values);
