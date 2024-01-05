@@ -176,12 +176,21 @@ function NavBar() {
           </Link>
           <div
             className="md:w-64  ml-20"
-            onClick={() => setsearchresultopen(!searchresultopen)}
+            // onClick={() => }
           >
             <Input
               label="Search User"
               value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
+              onChange={(e) =>{
+
+                setSearchQuery(e.target.value)
+                if (e.target.value.trim() !== ""){
+                  setsearchresultopen(true)
+
+                }else{
+                  setsearchresultopen(false)
+                }
+              }}
               icon={<MagnifyingGlassIcon className="h-5 w-5" />}
             />
           </div>

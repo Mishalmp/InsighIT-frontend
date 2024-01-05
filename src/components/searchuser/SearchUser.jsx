@@ -55,7 +55,7 @@ function SearchUser({ searchresultopen,searchQuery,userinfo,setsearchresultopen,
     ref={ref}
     className={`${
         searchresultopen
-          ? "absolute ml-40 z-[100] mt-2 overflow-y-auto max-h-[24rem] min-h-[6rem] flex flex-col text-gray-700 bg-gray-50 shadow-md w-[26rem] rounded-xl bg-clip-border"
+          ? "absolute ml-40 z-[100] mt-2 overflow-y-auto max-h-[24rem] hidescroll min-h-[6rem] flex flex-col text-gray-700 bg-gray-50 shadow-md w-[26rem] rounded-xl bg-clip-border"
           : "hidden"
       }`}
     >
