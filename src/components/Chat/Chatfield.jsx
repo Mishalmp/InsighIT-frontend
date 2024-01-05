@@ -5,7 +5,7 @@ import Userico from "../../assets/user2img.png";
 import { w3cwebsocket as W3CWebSocket, client } from "websocket";
 import { wsurl } from "../../constants/constants";
 import { useQuery } from "react-query";
-import { PreviousChat } from "../../services/UserApi";
+import { PreviousChat,IsStandardSubscriber } from "../../services/UserApi";
 import { timeAgo } from "../../helpers/Timemanage";
 import Chatbg from "../../assets/chatbg.jpg";
 import VideocamOutlinedIcon from "@mui/icons-material/VideocamOutlined";
@@ -18,6 +18,19 @@ function Chatfield({ userinfo, recipientDetails }) {
   const [clientstate, setClientState] = useState("");
   const [senderdetails, setSenderDetails] = useState(userinfo);
   const lastMessageRef = useRef();
+  const [IsStandardSubs,setIsStandardSub]=useState(null)
+
+
+  const check_subscription = async()=>{
+    try {
+      const response = await IsStandardSubscriber(userinfo.id,recipientDetails.id)
+      setIsStandardSub(response.data.is_standard_subscriber)
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  console.log(IsStandardSubs,'subssssssssssss');
+
 
   const onButtonClicked = (e) => {
     e.preventDefault();
@@ -121,6 +134,7 @@ function Chatfield({ userinfo, recipientDetails }) {
   useEffect(() => {
     if (senderdetails.id != null && recipientDetails.id != null) {
       setUpChat();
+      check_subscription()
     }
     if (messageRef.current) {
       messageRef.current.scrollTop = messageRef.current.scrollHeight;
@@ -183,11 +197,15 @@ function Chatfield({ userinfo, recipientDetails }) {
               className="hover:bg-blue-gray-100 rounded-full hover:cursor-pointer"
               fontSize="large"
             />
-            <VideocamOutlinedIcon
+            {!(recipientDetails.is_premium && !IsStandardSubs) ?(
+
+              <VideocamOutlinedIcon
               className="hover:bg-blue-gray-100 rounded-full hover:cursor-pointer"
               fontSize="large"
               onClick={handlevideoClick}
-            />
+              />
+              ):""
+            }
           </div>
         </div>
 

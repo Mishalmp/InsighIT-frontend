@@ -239,6 +239,19 @@ const IsSubscriber=(user_id,blog_author)=>{
       });
 }
 
+const IsStandardSubscriber=(user_id,author_id)=>{
+  return UserAxiosInstant.get(`accounts/isstandardSubscriber/${user_id}/${author_id}/`,{
+      withCredentials:true
+  }).catch((error) => {
+      if (error.response.status === 401) {
+        RefreshToken();
+      } else {
+        error.response;
+      }
+    });
+}
+
+
 const CreateFollowing=(values)=>{
     return UserAxiosInstant.post('accounts/followingscreate/',values,{
         withCredentials:true
@@ -451,6 +464,6 @@ export {UserSignin,UserGoogleSignin,UserGoogleSignup,GetUserInfo,
     UpdateUser,CreateSkill,ListSkills,EditSkill,DeleteSkill,NotificationCreate,Checkoutsession,
     Notificationsbyuser,CreateSubscription,IsSubscriber,CreateFollowing,Is_follower,Unfollow,Followingslist,Followerslist,
     SubscriptionsList,Subscriberslist,UserWallet,PreviousChat,ChatUsersList,ClearNotificationbyuser,IssueReportView,
-    ListIssuesByUser,ListIssues,CreateReportIssue,PremiumList,Updateissue,ChangeUserPassword,TrendingUsers,Logout,RefreshToken
-
+    ListIssuesByUser,ListIssues,CreateReportIssue,PremiumList,Updateissue,ChangeUserPassword,TrendingUsers,Logout,RefreshToken,
+    IsStandardSubscriber
 }
