@@ -93,8 +93,7 @@ export default function HomePage() {
 
               <p className="font-serif text-lg text-center text-white md:text-left max-w-[30rem] md:w-[100%]">
                 Discover stories, thinking, and expertise from writers on any
-                Tech Related topic.Can unlock long-term value and drive economic
-                growth
+                Tech Related topic.Get Insight about IT
               </p>
               <button className="px-6 py-3 rounded-[25px] bg-[#039368] text-white block mx-auto md:mx-0">
                 Start Reading
