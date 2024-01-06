@@ -69,10 +69,13 @@ function SearchUser({ searchresultopen,searchQuery,userinfo,setsearchresultopen,
             onClick={()=>{
                 if (user.id === userinfo.id){
                     navigate('/User/userprofile')
+
                 }else{
                     navigate(`/User/authorprofile/`,{state:{authorId:user.id}})
                 }
-            }}
+                setsearchresultopen(false)
+            }
+          }
           >
 
             <div className="grid mr-4 place-items-center">

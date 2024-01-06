@@ -68,9 +68,10 @@ function Signup() {
 
         const token = JSON.stringify(res.data.token)
         const decoded = jwtDecode(token)
-        fetchUserInfo(decoded)
         localStorage.setItem("token",token)
-
+        
+        fetchUserInfo(decoded)
+        
         if (decoded.role === 'user'){
           if (decoded.is_active){
             navigate('/User/Home/')
@@ -80,6 +81,7 @@ function Signup() {
           }
 
         }
+        
       }catch(error){
         if (
           error.response &&
