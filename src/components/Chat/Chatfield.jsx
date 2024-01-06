@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
-import { Input } from "@material-tailwind/react";
+import { Input,Tooltip } from "@material-tailwind/react";
 import Userico from "../../assets/user2img.png";
 import { w3cwebsocket as W3CWebSocket, client } from "websocket";
 import { wsurl } from "../../constants/constants";
@@ -10,6 +10,7 @@ import { timeAgo } from "../../helpers/Timemanage";
 import Chatbg from "../../assets/chatbg.jpg";
 import VideocamOutlinedIcon from "@mui/icons-material/VideocamOutlined";
 import AddIcCallOutlinedIcon from "@mui/icons-material/AddIcCallOutlined";
+import VerifiedIcon from "@mui/icons-material/Verified";
 import { useNavigate } from "react-router-dom";
 function Chatfield({ userinfo, recipientDetails }) {
   const messageRef = useRef();
@@ -186,7 +187,7 @@ function Chatfield({ userinfo, recipientDetails }) {
                 })
               }
             >
-              {recipientDetails.first_name + " " + recipientDetails.last_name}
+              {recipientDetails.first_name + " " + recipientDetails.last_name} {recipientDetails.is_premium && <VerifiedIcon className="-mt-1" color="primary" />}
             </p>
             <p className="text-sm mt-1 -ml-10 text-gray-500">
               Active few minutes ago
@@ -198,13 +199,22 @@ function Chatfield({ userinfo, recipientDetails }) {
               fontSize="large"
             />
             {!(recipientDetails.is_premium && !IsStandardSubs) ?(
-
+               <Tooltip content="Video Call">
               <VideocamOutlinedIcon
               className="hover:bg-blue-gray-100 rounded-full hover:cursor-pointer"
               fontSize="large"
               onClick={handlevideoClick}
               />
-              ):""
+              </Tooltip>
+              ):(
+                <Tooltip content="Not Available in your plan">
+                <VideocamOutlinedIcon
+                className=" rounded-full hover:cursor-pointer"
+                fontSize="large"
+                
+                />
+                </Tooltip>
+              )
             }
           </div>
         </div>

@@ -16,9 +16,7 @@ import {
   // IconButton,
   // Tooltip,
 } from "@material-tailwind/react";
-import Userico from "../../assets/user2img.png";
-import NavBar from "../Userside/NavBar/NavBar";
-import Footer from "../Userside/footer/footer";
+import VerifiedIcon from "@mui/icons-material/Verified";
 
 import { ChatUsersList } from "../../services/UserApi";
 import { Loader } from "../Loading/Loader";
@@ -82,7 +80,7 @@ function ChatUserlist({ userinfo, setRecipientDetails }) {
                   </svg>
                 )}
                 <p className="mt-6 -ml-10 font-semibold text-sm">
-                  {user.first_name + " " + user.last_name}
+                  {user.first_name + " " + user.last_name} {user.is_premium && <VerifiedIcon fontSize="small" className="-mt-1" color="primary" />}
                 </p>
 
                 <p className="text-xs mt-6 text-gray-500">21 12 2023</p>
