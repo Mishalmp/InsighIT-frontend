@@ -32,7 +32,7 @@ import { UserAxiosInstant } from "../../utils/axiosUtils";
 
 function UserProtected() {
     const token = localStorage.getItem('token');
-    const [notifications, setNotifications] = useState([]);
+    // const [notifications, setNotifications] = useState([]);
     const { userinfo } = useSelector((state) => state.user);
 
 
