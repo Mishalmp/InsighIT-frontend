@@ -115,8 +115,13 @@ function AdminLogin() {
     <>
     {loading && <Loader/>}
     <ToastContainer/>
+    <p className='ml-10'> email :admin@admin.com </p>
+      <p className='ml-10'>pass :123456 </p>
+      <p className='ml-10 -mb-20'>enable notification permission in browser for getting real time notification</p>
     <div className="h-screen w-full flex justify-center items-center">
+    
     <div className="outward-shadow bg-white w-2/4 h-3/4 sm:w-1/3 flex justify-center items-center">
+      
       <form
         className="space-y-8 sm:w-52 lg:w-80 xl:w-96 mt-4"
         action=""

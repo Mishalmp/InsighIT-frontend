@@ -244,6 +244,9 @@ function LoginPage() {
 
 
 <Card className="bg-gray-100 h-screen">
+<p className='ml-10'>user- email:nishalp@gmail.com  pass : 123456 </p>
+<p className='ml-10'>premium user- email: fasilmp@gmail.com  pass : 123456 <span className='ml-20'>admin url : admin/adminlogin/</span> </p>
+
 <CardBody className='grid grid-cols-2 bg-white shadow-2xl rounded-lg w-[80rem] mt-32 ml-32 h-[35rem]'>
 <div className="bg-cover flex items-center justify-center" >
   <img className='h-[30rem] m-5 w-[35rem] ' src={Bloggingimg}  alt="Blog img" />
