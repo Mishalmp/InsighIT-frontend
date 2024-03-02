@@ -74,7 +74,7 @@ function Technews() {
               )}
               <CardBody className="h-[11rem]">
                 <Typography variant="h5" color="blue-gray" className="mb-2">
-                  {news.author}
+                  {news.author && news.author.substring(0, 20)}
                 </Typography>
                 <Typography>{news.title.substring(0, 100) + "..."}</Typography>
               </CardBody>

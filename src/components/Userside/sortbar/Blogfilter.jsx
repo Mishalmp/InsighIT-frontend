@@ -58,17 +58,17 @@ function Blogfilter({ ListBlogs, setBlogs, searchQuery, userId,sort }) {
   };
 
   return (
-    <div className="w-[56rem] flex-row items-center ml-[3rem] mt-10 mb-10">
+    <div className="flex-row items-center mt-10 mb-10">
       <ChevronLeftOutlinedIcon
         fontSize="large"
         className="float-left mt-3"
         onClick={() => sliderRef.current.slickPrev()}
       />
-      <Tabs value={activeTab} className="w-[52rem]">
+      <Tabs value={activeTab} className="">
         <Slider
           ref={sliderRef}
           {...settings}
-          className="rounded-none border-b cursor-pointer flex-row justify-evenly gap-7 border-blue-gray-50 bg-transparent p-4"
+          className="rounded-none border-b cursor-pointer  mr-4 flex-row flex-wrap justify-evenly gap-7 border-blue-gray-50 bg-transparent p-4"
           indicatorProps={{
             className:
               "bg-transparent cursor-pointer border-b-2 border-gray-900 shadow-none rounded-none",
@@ -102,7 +102,7 @@ function Blogfilter({ ListBlogs, setBlogs, searchQuery, userId,sort }) {
       </Tabs>
       <ChevronRightOutlinedIcon
         fontSize="large"
-        className="float-right ml-2 -mt-[2.8rem]"
+        className="float-right ml-2 -mt-10"
         onClick={() => sliderRef.current.slickNext()}
       />
     </div>

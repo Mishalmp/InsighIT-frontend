@@ -60,8 +60,8 @@ function Sidebar() {
   const [openAlert, setOpenAlert] = useState(true);
 
   return (
-    <div className="w-[24rem] float-right ml-[5rem] h-[98rem] mt-5 shadow-2xl rounded-md mr-1  bg-gray-100">
-      <Card className=" m-3 mt-5 bg-white shadow-2xl">
+    <div className="lg:max-w-lg max-w-xl float-right md:items-center md:ml-40 lg:ml-12 m-5 shadow-2xl rounded-md md:mr-10  bg-gray-100">
+      <Card className="m-3 mt-5 bg-white shadow-2xl">
         <Typography
           variant="h5"
           color="deep-purple"
@@ -86,7 +86,7 @@ function Sidebar() {
       </Card>
       <Alert
         open={openAlert}
-        className="mt-4 w-[22rem] ml-4 bg-[#c4e2ff] text-black"
+        className="mt-4 w-auto mr-2 ml-4 bg-[#c4e2ff] text-black"
         onClose={() => setOpenAlert(false)}
       >
         <Typography variant="h5" className="mb-1">
@@ -121,7 +121,7 @@ function Sidebar() {
         </div>
       </Alert>
       {followingslist.length > 0 && (
-        <Card className=" m-3 mt-5 bg-white shadow-2xl">
+        <Card className="m-3 mt-5 bg-white shadow-2xl">
           <Typography
             variant="h5"
             color="deep-purple"

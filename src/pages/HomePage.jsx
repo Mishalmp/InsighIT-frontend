@@ -80,7 +80,7 @@ export default function HomePage() {
           )}
         >
                 <div
-            className=" h-[35rem] m-auto grid md:grid-cols-2"
+            className="h-[35rem] m-auto grid md:grid-cols-2"
             style={{ backgroundImage: `url(${banner_img1})` }}
           >
             <div className="flex-col md:ml-[10rem] space-y-4 md:space-y-10 mt-10 md:mt-[150px]">
@@ -95,9 +95,9 @@ export default function HomePage() {
                 Discover stories, thinking, and expertise from writers on any
                 Tech Related topic.Get Insight about IT
               </p>
-              <button className="px-6 py-3 rounded-[25px] bg-[#039368] text-white block mx-auto md:mx-0">
+              {/* <button className="px-6 py-3 rounded-[25px] bg-[#039368] text-white block mx-auto md:mx-0">
                 Start Reading
-              </button>
+              </button> */}
             </div>
           </div>
             <div className="relative h-[35rem] m-auto grid md:grid-cols-2">
@@ -129,9 +129,9 @@ export default function HomePage() {
                 we focus on markets where technology, innovation, and capital
                 can unlock long-term value and drive economic growth.
               </p>
-              <button className="px-6 py-3 rounded-[25px] bg-[#039368] text-white block mx-auto md:mx-0">
+              {/* <button className="px-6 py-3 rounded-[25px] bg-[#039368] text-white block mx-auto md:mx-0">
                 Start Reading
-              </button>
+              </button> */}
             </div>
           </div>
     
@@ -146,7 +146,7 @@ export default function HomePage() {
             Trending Topics
           </h2>
         </div>
-        <div className="flex mb-10 gap-10  mt-5">
+        <div className="flex flex-wrap overflow-x-hidden mt-10 justify-start gap-10">
           {showSkeleton ? (
             <>
               <DefaultSkeleton />
@@ -156,7 +156,7 @@ export default function HomePage() {
             </>
           ) : topics.length > 0 ? (
             topics.map((topic) => (
-              <div className="w-[18rem] h-[16rem] mt-5 p-6 bg-[#eff5fb] border shadow-lg  border-gray-200 rounded-lg ">
+              <Card className="w-[18rem] h-[16rem] mt-5 p-6 bg-[#eff5fb] border shadow-lg  border-gray-200 rounded-lg ">
                 <div className="grid grid-cols-2 h-20">
                   <div>
                     <img
@@ -179,7 +179,7 @@ export default function HomePage() {
                     No of Blogs Created :{topic.num_blogs}
                   </a>
                 </div>
-              </div>
+              </Card>
             ))
           ) : (
             <Typography variant="h3" className="text-center">
@@ -199,7 +199,7 @@ export default function HomePage() {
             </h2>
           </div>
 
-          <div className="mt-10 ">
+          <div className="mt-10 max-w-4xl">
             {showSkeleton ? (
               <>
                 <ImagePlacehoderSkeleton />

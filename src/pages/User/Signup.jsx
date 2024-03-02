@@ -276,14 +276,15 @@ function Signup() {
    
    
     <Card className="bg-gray-100 h-screen">
-<CardBody className='grid grid-cols-2 bg-white shadow-2xl rounded-lg w-[80rem] mt-20 ml-32 h-[40rem]'>
-     <div className="bg-cover flex items-center justify-center" >
-    <img className='h-[30rem] m-5 w-[35rem]' src={Bloggingimg} alt="Blog img" />
+  <CardBody className="grid grid-cols-1 md:grid-cols-2 bg-white shadow-2xl rounded-lg max-w-5xl md:mt-20 lg:ml-48 mt-0 h-auto md:h-[40rem]">
+    <div className="bg-cover flex items-center justify-center">
+      <img className="hidden md:block h-[30rem] m-5 w-[35rem]" src={Bloggingimg} alt="Blog img" />
     </div>
-      <div className="bg-white w-[30rem] h-[36rem] ml-10 mt-2 p-8 rounded shadow-2xl">
-       
-          <h2 className="text-2xl font-semibold text-center text-indigo-600">Sign Up</h2>
-          <form className="mt-4" onSubmit={FormHandlerSignup}>
+    <div className="bg-white md:ml-10 w-full md:w-96 h-auto md:h-[36rem] mt-5 p-8 rounded shadow-2xl">
+      <h2 className="text-2xl font-semibold text-center text-indigo-600">Sign Up</h2>
+      <form className="mt-4" onSubmit={FormHandlerSignup}>
+      
+ 
           <div className="mb-4">
             <div class="relative h-11 w-full min-w-[200px]">
         <input
@@ -370,29 +371,26 @@ function Signup() {
         </label>
       </div>
             </div> 
-          
-          <button
-            type="submit"
-            className="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700"
-          >
-            Sign Up
-          </button>
-          </form>
-          <div className="text-center my-3">
-              <p className="text-gray-600">Or</p>
-            </div>
-            <div className="text-center ml-[25%]" >
-              {customGoogleSignupButton}
-            </div>
-          <Link to='/login/'>
-      <p className="text-center text-gray-600 mt-4">
-        Already have account <a className="text-indigo-600">Login</a>
-      </p>
-            </Link>
-        </div>
-     
-    </CardBody>
-    </Card>
+        {/* Repeat similar structure for Last Name, Email, and Password inputs */}
+        <button
+          type="submit"
+          className="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700"
+        >
+          Sign Up
+        </button>
+      </form>
+      <div className="text-center my-3">
+        <p className="text-gray-600">Or</p>
+      </div>
+      <div className="text-center ml-[25%]">{customGoogleSignupButton}</div>
+      <Link to="/login/">
+        <p className="text-center text-gray-600 mt-4">
+          Already have an account? <a className="text-indigo-600">Login</a>
+        </p>
+      </Link>
+    </div>
+  </CardBody>
+</Card>
 
     </>
   );

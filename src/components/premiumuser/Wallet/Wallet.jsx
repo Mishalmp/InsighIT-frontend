@@ -37,7 +37,7 @@ function Wallet({ user }) {
     const FetchWallet = async () => {
       try {
         const response = await UserWallet(user.id);
-       
+
         setTotalrecieve(response.data.total_recieved);
         setWithdraw(response.data.total_withdrawn);
         setTransactions(response.data.transactions);
@@ -49,82 +49,67 @@ function Wallet({ user }) {
   }, []);
   
   return (
-    <div className="hidescroll max-h-[48rem] overflow-y-auto">
-      <div className="ml-[22rem] flex">
-        <h1 className="font-bold text-2xl text-center">Wallet</h1>
-
-        {/* <div className="md:w-56 ml-32">
-          <Input
-            label="Search"
-            icon={<MagnifyingGlassIcon className="h-5 w-5" />}
-          />
-        </div> */}
-      </div>
-      <Card className="w-[50rem] min-h-[25rem]  overflow-x-hidden mt-5 bg-gray-50">
-        <div className="w-96 ml-48 mt-10 h-32 rounded-lg border-[1px] border-green-500 shadow-2xl shadow-gray-400">
-          <Typography variant="h5" className="text-gray-500 mt-2 text-center">
-            Your Wallet balance
-          </Typography>
-          <Typography variant="h2" className="text-green-600 mt-5 text-center">
-            $ {user.wallet_balance}
-          </Typography>
-     
-        </div>
-        <button
-            class="select-none w-40 m-5 ml-[19rem] rounded-lg bg-blue-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-            type="button"
-       
-            onClick={()=>setOpenwallet(true)}
-          >
-            Withdraw
-          </button>
-
-          
-        <div className="flex -ml-7 justify-center items-center gap-8">
-          <div className="mt-5">
-            <Typography variant="h6" className="text-gray-500 text-center">
-              Total Recieved
-            </Typography>
-            <div className="w-44 mt-2 h-16 flex gap-8 rounded-lg border-[1px] border-green-500 shadow-2xl shadow-gray-400">
-              <div className="w-10 h-10 mt-3 flex justify-center items-center ml-2 rounded-full bg-green-200">
-                <NorthEastIcon fontSize="large" className="text-green-600" />
-              </div>
-
-              <Typography
-                variant="h6"
-                className="text-green-600 mt-5 text-center"
-              >
-                $ {totalrecieve}
-              </Typography>
-            </div>
-          </div>
-          <div className="mt-5">
-            <Typography variant="h6" className="text-gray-500 text-center">
-              Total Withdrawn
-            </Typography>
-            <div className="w-44 mt-2 h-16 flex gap-8 rounded-lg border-[1px] border-red-800 shadow-2xl shadow-gray-400">
-              <div className="w-10 h-10 mt-3 flex justify-center items-center ml-2 rounded-full bg-red-300">
-                <SouthWestIcon fontSize="large" className="text-red-800" />
-              </div>
-
-              <Typography
-                variant="h6"
-                className="text-red-800 mt-5 text-center"
-              >
-                $ {totalwithdraw}
-              </Typography>
-            </div>
-          </div>
-        </div>
-
-        <Typography variant="h5" className="text-gray-500 mt-16 ml-40">
-          Transactions
+    <div className="hidescroll max-h-[48rem] overflow-y-auto max-w-screen-lg mx-auto px-4">
+    <div className="flex flex-col md:flex-row items-center justify-between">
+      <h1 className="font-bold text-2xl text-center md:ml-72 lg:ml-64 md:text-center mb-4 md:mb-0">
+        Wallet
+      </h1>
+      {/* Search input */}
+    </div>
+    <Card className="max-w-md hidescroll md:max-w-3xl mt-5 mx-auto bg-gray-50">
+      <div className=" ml-10 mr-10 mt-10 mx-auto h-32 rounded-lg border-[1px] border-green-500 shadow-2xl shadow-gray-400">
+        <Typography variant="h5" className="text-gray-500 mt-2 text-center">
+          Your Wallet balance
         </Typography>
+        <Typography variant="h2" className="text-green-600 mt-5 text-center">
+          $ {user.wallet_balance}
+        </Typography>
+      </div>
+      <button
+        className=" w-40 mx-auto  mt-5  rounded-lg bg-blue-500 py-3 px-6 text-center font-sans text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+        type="button"
+        onClick={() => setOpenwallet(true)}
+      >
+        Withdraw
+      </button>
+      {/* Total Recieved and Total Withdrawn */}
+      <div className="flex flex-col md:flex-row gap-8 hidescroll mt-5 mx-auto max-w-md md:max-w-4xl">
+        <div className="w-full md:w-40">
+          <Typography variant="h6" className="text-gray-500 text-center md:text-left">
+            Total Recieved
+          </Typography>
+          <div className="w-full mt-2 h-16 flex gap-8 rounded-lg border-[1px] border-green-500 shadow-2xl shadow-gray-400">
+            <div className="w-10 h-10 mt-3 flex justify-center items-center ml-2 rounded-full bg-green-200">
+              <NorthEastIcon fontSize="large" className="text-green-600" />
+            </div>
+            <Typography variant="h6" className="text-green-600 mt-5 text-center">
+              $ {totalrecieve}
+            </Typography>
+          </div>
+        </div>
+        <div className="w-full md:w-40">
+          <Typography variant="h6" className="text-gray-500 text-center md:text-left">
+            Total Withdrawn
+          </Typography>
+          <div className="w-full mt-2 h-16 flex gap-8 rounded-lg border-[1px] border-red-800 shadow-2xl shadow-gray-400">
+            <div className="w-10 h-10 mt-3 flex justify-center items-center ml-2 rounded-full bg-red-300">
+              <SouthWestIcon fontSize="large" className="text-red-800" />
+            </div>
+            <Typography variant="h6" className="text-red-800 mt-5 text-center">
+              $ {totalwithdraw}
+            </Typography>
+          </div>
+        </div>
+      </div>
 
-        <div className="mb-5 mt-5">
-          {transactions &&
-            transactions.map((transaction) => (
-              <div className="w-[30rem] gap-8 ml-40 h-12 mt-3 grid grid-cols-4 rounded-lg shadow-2xl shadow-gray-500">
+      {/* Transactions */}
+      <Typography variant="h5" className="text-gray-500 mt-8 mx-auto ">
+        Transactions
+      </Typography>
+      <div className="mt-3 max-w-md mx-auto md:max-w-3xl">
+        {transactions &&
+          transactions.map((transaction, index) => (
+            <div className="gap-8  h-12 mt-3 grid grid-cols-4 rounded-lg shadow-2xl shadow-gray-500">
                 <img
                   src={Userico}
                   className="w-8 h-8 rounded-full mt-2 ml-2"
@@ -142,10 +127,10 @@ function Wallet({ user }) {
                   $ {transaction.recieved}
                 </Typography>
               </div>
-            ))}
-        </div>
-      </Card>
-      <ConnectWallet openwallet={openwallet} setOpenwallet={setOpenwallet}  />
+          ))}
+      </div>
+    </Card>
+    <ConnectWallet openwallet={openwallet} setOpenwallet={setOpenwallet} />
 
       <Dialog size="md" open={open}>
         <DialogHeader>

@@ -55,11 +55,11 @@ function SearchUser({ searchresultopen,searchQuery,userinfo,setsearchresultopen,
     ref={ref}
     className={`${
         searchresultopen
-          ? "absolute ml-40 z-[100] mt-2 overflow-y-auto max-h-[24rem] hidescroll min-h-[6rem] flex flex-col text-gray-700 bg-gray-50 shadow-md w-[26rem] rounded-xl bg-clip-border"
+          ? "absolute ml-24 sm:ml-56 z-[100] mt-2 overflow-y-auto max-h-[24rem] hidescroll min-h-[6rem] flex flex-col text-gray-700 bg-gray-50 shadow-md max-w-md rounded-xl bg-clip-border"
           : "hidden"
       }`}
     >
-      <nav className="flex min-w-[240px] flex-col gap-1 p-2 font-sans text-base font-normal text-blue-gray-700">
+      <nav className="flex max-w-md flex-col gap-1 p-2 font-sans text-base font-normal text-blue-gray-700">
         {users.length > 0 ?
         users.map((user)=>(
             <div

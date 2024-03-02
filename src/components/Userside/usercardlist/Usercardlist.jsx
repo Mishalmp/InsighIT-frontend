@@ -57,7 +57,7 @@ function Usercardlist() {
         <Typography variant="h4" className="">Trending Authors</Typography>
       </div>
     <div
-      className="mt-10 h-[25rem] flex gap-4 max-w-[80rem] overflow-x-auto hidescroll"
+      className="flex flex-wrap overflow-x-hidden mt-10 justify-start gap-10 hidescroll"
     >
 
       {showSkeleton ? (

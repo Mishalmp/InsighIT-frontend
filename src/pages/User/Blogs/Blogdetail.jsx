@@ -369,9 +369,9 @@ function Blogdetail() {
   };
 
   return (
-    <>  
-      <div className="flex">
-      <Breadcrumbs className="ml-20 w-52 mt-10">
+    <div className="flex flex-col">  
+      <div className="flex max-w-6xl">
+      <Breadcrumbs className="lg:ml-20 xl:ml-48 md:w-52 w-32 mt-10">
             <div onClick={() => navigate("/User/Home/")} className="opacity-60">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -383,34 +383,34 @@ function Blogdetail() {
               </svg>
             </div>
             <div onClick={()=>navigate("/User/blogs/")} className="opacity-60">
-              <span>Blogs</span>
+              <span className="md:text-sm text-xs">Blogs</span>
             </div>
             <div className="opacity-60">
-              <span>Blog Detail</span>
+              <span className="md:text-sm text-xs">Blog Detail</span>
             </div>
           </Breadcrumbs>
-        <Typography className="font-bold text-5xl ml-[20%] mt-10">
+        <Typography className="font-bold md:text-5xl text-3xl ml-[20%] mt-10">
           Blog Detail
         </Typography>
       </div>
 
       {isContentVisible ? (
         <>
-          <Card className="w-[60rem] m-20 ml-[15%] bg-gray-100">
+          <Card className="md:max-w-5xl w-full mt-10 lg:m-20 xl:ml-56  bg-gray-100">
             <Typography className="text-3xl mt-5 font-semibold text-center mb-6">
               {blog.title}
             </Typography>
 
-            <div className="flex m-[50px] gap-10">
+            <div className="flex md:m-[50px] m-5 gap-10">
               {blog.user_id.profile_img?(
                    <img
                    src={blog.user_id.profile_img}
-                   className="w-14 h-14 rounded-full cursor-pointer"
+                   className="md:w-14 w-10 md:h-14 h-10 rounded-full cursor-pointer"
                    onClick={handleauthornavigate}
                  />
               ):(
                 <svg
-                className="w-14 h-14 rounded-full cursor-pointer text-gray-300"
+                className="md:w-14 w-10 md:h-14 h-10 rounded-full cursor-pointer text-gray-300"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -426,7 +426,7 @@ function Blogdetail() {
 
               <div className="mt-3 flex gap-10">
                 <p
-                  className="font-semibold text-xl cursor-pointer"
+                  className="font-semibold text-sm md:text-xl cursor-pointer"
                   onClick={handleauthornavigate}
                 >
                   {blog.user_id.first_name} {blog.user_id.last_name}
@@ -437,7 +437,7 @@ function Blogdetail() {
                     {is_following ? (
                       <span
                         onClick={Handleunfollow}
-                        className="bg-green-100 w-24 text-md font-semibold cursor-pointer justify-center items-center mt-1 h-[1.6rem] flex text-blue-800  rounded-md"
+                        className="bg-green-100 w-16 text-xs md:w-24 md:text-md font-semibold cursor-pointer justify-center items-center h-[1.6rem] flex text-blue-800  rounded-md"
                       >
                         following
                       </span>
@@ -452,15 +452,15 @@ function Blogdetail() {
                   </>
                 )}
 
-                <p className="text-gray-700">{createdAtAgo}</p>
+                <p className="text-gray-700 text-sm">{createdAtAgo}</p>
 
-                <Rating value={4} className="-mt-5" />
+                {/* <Rating value={4} className="-mt-5" /> */}
               </div>
             </div>
             <hr />
-            <div className="md:mt-1 md:mb-1 md:ml-10 max-w-[55rem] h-12 flex justify-between items-center">
-              <div className="bg-gray-300 md:h-[2rem] rounded-[28px] w-[200px] flex items-center justify-center">
-                <span className="text-xl">{blog.topic.topic}</span>
+            <div className="md:mt-1 md:mb-1 md:ml-10 ml-2 max-w-4xl h-12 flex justify-between items-center">
+              <div className="bg-gray-300 md:h-[2rem] rounded-[28px] md:w-64 sm:w-20  flex items-center justify-center">
+                <span className="md:text-xl sm:text-sm text-xs">{blog.topic.topic}</span>
               </div>
 
               <ul className="flex space-x-8">
@@ -470,30 +470,30 @@ function Blogdetail() {
                 >
                   <ThumbUpOffAltIcon
                     color={isLiked ? "primary" : ""}
-                    className="w-14 h-14 cursor-pointer"
+                    className="md:w-14 w-8 md:h-14 cursor-pointer"
                   />
                   <span className="ml-2 text-gray-700">{blog.likes}</span>
                 </li>
                 <li className="flex items-center" onClick={handlecommenticon}>
-                  <CommentIcon className="w-10 h-10 cursor-pointer" />
+                  <CommentIcon className="md:w-10 w-6 md:h-10 cursor-pointer" />
                 </li>
                 <li className="flex items-center">
                   {isSaved ? (
                     <BookmarkOutlinedIcon
-                      className="w-10 h-10 cursor-pointer"
+                      className="md:w-10 w-6 md:h-10 cursor-pointer"
                       color="primary"
                       onClick={HandleSave}
                     />
                   ) : (
                     <BookmarkAddIcon
-                      className="w-10 h-10 cursor-pointer"
+                      className="md:w-10 w-6 md:h-10 cursor-pointer"
                       onClick={HandleSave}
                     />
                   )}
                 </li>
                 <li className="flex items-center">
                   <IosShareIcon
-                    className="w-10 h-10 cursor-pointer"
+                    className="md:w-10 w-6 md:h-10 cursor-pointer"
                     onClick={handleShare}
                   />
                 </li>
@@ -509,7 +509,7 @@ function Blogdetail() {
                         color="blue-gray"
                         className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto"
                       >
-                        <MoreHorizIcon className="w-10 h-10 cursor-pointer" />
+                        <MoreHorizIcon className="md:w-10 w-6 md:h-10 cursor-pointer" />
                       </Button>
                     </MenuHandler>
                     <MenuList className="p-1">
@@ -621,7 +621,7 @@ function Blogdetail() {
 
             {blog.banner_img && (
               <img
-                className="mb-6 rounded-lg ml-20 mt-8 w-[80%] h-[30rem]  object-cover object-center"
+                className="mb-6 rounded-lg md:ml-10 md:mr-10 lg:ml-20  mt-8 lg:w-[80%] object-cover object-center"
                 src={blog.banner_img}
                 alt="Banner Image"
               />
@@ -632,7 +632,7 @@ function Blogdetail() {
             />
 
             <video
-              className="h-[30rem] w-[50rem] m-20 mt-20 mb-10  rounded-lg"
+              className="w-[50rem] lg:ml-28 mt-20 mb-10  rounded-lg"
               controls
             >
               <source src={blog.video_post} type="video/mp4" />
@@ -646,14 +646,14 @@ function Blogdetail() {
             blog={blog.user_id}
             sendNotification={sendNotification}
           />
-          <Relatedblogs user={blog.user_id} />
+          {/* <Relatedblogs user={blog.user_id} /> */}
         </>
       ) : (
         <Bloghidepage user_id={userinfo.id} author_id={blog.user_id.id} />
       )}
 
      
-    </>
+    </div>
   );
 }
 

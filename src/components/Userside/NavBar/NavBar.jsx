@@ -169,71 +169,68 @@ function NavBar() {
 
   return (
     <>
-      <div className="w-full m-1 mb-0 rounded-lg h-[60px] bg-white border-b flex justify-between items-center">
-        <div className="ml-20 flex items-center">
-          <Link to="/User/Home/">
-            <img src={bginsight} className="h-[70px]" />
-          </Link>
-          <div
-            className="md:w-64  ml-20"
-            // onClick={() => }
-          >
-            <Input
-              label="Search User"
-              value={searchQuery}
-              onChange={(e) =>{
-
-                setSearchQuery(e.target.value)
-                if (e.target.value.trim() !== ""){
-                  setsearchresultopen(true)
-
-                }else{
-                  setsearchresultopen(false)
-                }
-              }}
-              icon={<MagnifyingGlassIcon className="h-5 w-5" />}
-            />
-          </div>
+    {/* Navbar Header */}
+    <div className="w-full m-1 mb-0 rounded-lg h-[60px] bg-white border-b flex justify-between items-center">
+      <div className="lg:ml-20 md:ml-10 flex items-center">
+        <Link to="/User/Home/">
+          <img src={bginsight} className="w-20 h-16" />
+        </Link>
+        <div className="w-28 md:w-64 ml-5 sm:ml-10 md:ml-20">
+          <Input
+            label="Search User"
+            value={searchQuery}
+            onChange={(e) => {
+              setSearchQuery(e.target.value);
+              if (e.target.value.trim() !== "") {
+                setsearchresultopen(true);
+              } else {
+                setsearchresultopen(false);
+              }
+            }}
+            icon={<MagnifyingGlassIcon className="h-5 w-5" />}
+          />
         </div>
-        <ul className="hidden md:flex space-x-16 mr-[100px]">
+      </div> 
+      {/* Navbar Menu (for larger screens) */}
+      <ul className="lg:flex md:space-x-12 lg:space-x-16 md:ml-10">
           <Link to="/User/usercreateblog/">
             {" "}
-            <li className="flex items-center hover:cursor-pointer hover:bg-blue-gray-50 rounded-3xl mt-2">
+            <li className="items-center hidden lg:block hover:cursor-pointer hover:bg-blue-gray-50 rounded-3xl mt-2">
               <NoteAltIcon fontSize="medium" />
-              <span>Write</span>
+              {/* <span className="hidden lg:block">Write</span> */}
             </li>
           </Link>
           <Link to="/User/blogs">
             {" "}
-            <li className="flex items-center mt-2 hover:cursor-pointer hover:bg-blue-gray-50 rounded-3xl">
+            <li className="items-center mt-2 hidden lg:block hover:cursor-pointer hover:bg-blue-gray-50 rounded-3xl">
               <ArticleIcon fontSize="medium" />
-              <span>Blogs</span>
+              {/* <span className="hidden lg:block">Blogs</span> */}
             </li>
           </Link>
           <Link to="/User/topics">
             {" "}
-            <li className="flex items-center mt-2 hover:cursor-pointer hover:bg-blue-gray-50 rounded-3xl">
+            <li className=" items-center mt-2 hidden lg:block hover:cursor-pointer hover:bg-blue-gray-50 rounded-3xl">
               <TopicIcon fontSize="medium" />
-              <span>Topics</span>
+              {/* <span className="hidden lg:block">Topics</span> */}
             </li>
           </Link>
           <Link to="/User/community/">
             {" "}
-            <li className="flex items-center mt-2 hover:cursor-pointer hover:bg-blue-gray-50 rounded-3xl">
+            <li className="items-center mt-2 hidden lg:block hover:cursor-pointer hover:bg-blue-gray-50 rounded-3xl">
               <NewspaperIcon fontSize="medium" />
-              <span> Community</span>
+              {/* <span className="hidden lg:block"> Community</span> */}
             </li>
           </Link>
 
           <li
-            className="flex items-center hover:cursor-pointer hover:bg-blue-gray-50 rounded-3xl"
+            className="items-center hover:cursor-pointer hidden lg:block  mt-2 hover:bg-blue-gray-50 rounded-3xl"
             onClick={handleOpenNotificationDrawer}
           >
             <Badge>
               {" "}
               <NotificationsActiveIcon fontSize="medium" />
             </Badge>{" "}
-            <span>Notifs</span>
+            {/* <span className="hidden lg:block">Notifs</span> */}
           </li>
           {/* <Link to='/User/userprofile/'>
     <li className='flex items-center'><img className='w-[40px] h-[40px] rounded-full' src={userinfo.profile_img} /></li>
@@ -242,18 +239,19 @@ function NavBar() {
             open={isMenuOpen}
             handler={setIsMenuOpen}
             placement="bottom-end"
+          
           >
             <MenuHandler>
               <Button
                 variant="text"
                 color="blue-gray"
-                className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto"
+                className="flex items-center visible gap-1 md:mb-4 lg:mb-0 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto"
               >
                 {userinfo.profile_img?(
                    <Avatar
                    variant="circular"
                    size="sm"
-                   alt="tania andrew"
+                   alt="menu"
                    className="border border-gray-900 p-0.5"
                    src={userinfo.profile_img}
                  />
@@ -280,8 +278,8 @@ function NavBar() {
                 />
               </Button>
             </MenuHandler>
-            <MenuList className="p-1 w-[50rem] mt-2 rounded-xl lg:block">
-              <ul className="grid grid-cols-3 gap-y-2 outline-none outline-0">
+            <MenuList className="p-1 md:w-[50rem] w-full mt-2 rounded-xl lg:block">
+              <ul className="grid md:grid-cols-3 grid-cols-2 gap-y-2 outline-none outline-0">
                 {profileMenuItems.map(({ label, description, icon }, key) => {
                   const isLastItem = key === profileMenuItems.length - 1;
 
@@ -363,45 +361,27 @@ function NavBar() {
             />
           </Menu>
         </ul>
+      {/* Mobile Navbar Toggle */}
+ 
+    </div>
 
-        <div className="md:hidden">
-          <img
-            src={toggle ? close : hamburgerMenu}
-            onClick={() => setToggle(!toggle)}
-          />
-        </div>
-      </div>
+    {/* Responsive Navbar Menu (for mobile screens) */}
+    {/* <div className={toggle ? "absolute z-10 p-4 bg-white w-full px-8" : "hidden"}>
 
-      <div
-        className={
-          toggle ? "absolute z-10 p-4 bg-white w-full px-8 md:hidden" : "hidden"
-        }
-      >
-        {/* <ul>
-            <li className='p-5 flex hover:bg-gray-50'><NoteAltIcon fontSize='medium'/><span className='m-auto text-xl font-normal'>Write</span> </li>
-            <li className='p-5 flex hover:bg-gray-100'><ArticleIcon fontSize='medium'/><span className='m-auto text-xl font-normal'>Docs</span></li>
-            <li className='p-5 flex hover:bg-gray-100'><BookmarksIcon fontSize='medium'/><span className='m-auto text-xl font-normal'>Saved</span></li>
-            <li className='p-5 flex hover:bg-gray-100'><img className='w-[60px] h-[60px]' src={userinfo.profile_img} /><span className='m-auto text-xl font-normal'>Profile</span></li>
-            <div className='flex flex-col my-4 gap-4'>
-            <button className='border border-[20B486] flex justify-center items-center hover:bg-black hover:text-white  bg-transparent  px-6 gap-2 py-4'>
-                Sign In
-            </button>
-          
-            </div>
+    </div> */}
 
-        </ul> */}
-      </div>
+    {/* Navbar Divider */}
+    <div className="w-full h-[1px] bg-gray-600"></div>
 
-      <div className="w-full h-[1px] bg-gray-600"></div>
-
-      <SearchUser
-        searchresultopen={searchresultopen}
-        searchQuery={searchQuery}
-        userinfo={userinfo}
-        setsearchresultopen={setsearchresultopen}
-        ref={searchRef}
-      />
-    </>
+    {/* Search User Component */}
+    <SearchUser
+      searchresultopen={searchresultopen}
+      searchQuery={searchQuery}
+      userinfo={userinfo}
+      setsearchresultopen={setsearchresultopen}
+      ref={searchRef}
+    />
+  </>
   );
 }
 

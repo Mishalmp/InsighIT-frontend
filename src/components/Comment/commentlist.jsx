@@ -39,23 +39,49 @@ import { ToastContainer, toast } from "react-toastify";
 const Comment = ({ comment, onReply, handleReplyClick ,onDeleteClick,isBlogAuthor,userinfo}) => (
   <div
     key={comment.id}
-    className="w-[50rem] rounded-lg border-[1px] bg-gray-50 min-h-32 mb-5"
+    className="md:m-10 m-3 rounded-lg border-[1px]  bg-gray-50 min-h-32 mb-5"
   >
     <div className="flex">
-      <img
-        src={comment.user.profile_img}
-        className="w-12 h-12 ml-2 mt-2 rounded-lg"
-        alt="user image"
-      />
-      <div>
+      {comment.user.profile_img ?(
+         <img
+         src={comment.user.profile_img}
+         className="w-12 h-12 ml-2 mt-2 rounded-lg"
+         alt="user image"
+       />
+      ):(
+        <svg
+        className="w-12 h-12 ml-2 mt-2 rounded-lg text-gray-300 "
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+      >
+        <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z" />
+      </svg>
+      )
+
+      }
+     
+      <div className="">
         <Typography variant="h6" className="mt-3 ml-5">
           {comment.user.first_name} {comment.user.last_name}
         </Typography>
-        <Typography className="-mt-1 ml-5 text-gray-500 text-sm">
+        <Typography className="ml-5 flex text-gray-500 text-sm">
           {timeAgo(comment.created_at)}
         </Typography>
       </div>
-      <div className="mt-3 ml-[36rem] flex gap-4">
+  
+    </div>
+    <Typography className="max-w-[48rem] mt-5 ml-5">
+      {comment.content}
+    </Typography>
+    <div className="flex ml-5 mt-5 mb-5 gap-4" onClick={handleReplyClick}>
+      <ReplyIcon className="w-3 h-3 hover:cursor-pointer hover:bg-blue-gray-100 rounded-full" onClick={() => onReply(comment)} />
+      <Typography className="hover:cursor-pointer" onClick={() => onReply(comment)}>
+        Reply
+      </Typography>
+      <FavoriteIcon className="mt-1 ml-5" fontSize="small" />
+      <div className="-mt-2 float-end flex gap-4">
         
         {isBlogAuthor || userinfo.id === comment.user.id ?(
         <Menu>
@@ -84,16 +110,6 @@ const Comment = ({ comment, onReply, handleReplyClick ,onDeleteClick,isBlogAutho
         </Menu>
         ):null }
       </div>
-    </div>
-    <Typography className="max-w-[48rem] mt-5 ml-5">
-      {comment.content}
-    </Typography>
-    <div className="flex ml-5 mt-5 mb-5 gap-4" onClick={handleReplyClick}>
-      <ReplyIcon className="w-3 h-3 hover:cursor-pointer hover:bg-blue-gray-100 rounded-full" onClick={() => onReply(comment)} />
-      <Typography className="hover:cursor-pointer" onClick={() => onReply(comment)}>
-        Reply
-      </Typography>
-      <FavoriteIcon className="mt-1 ml-5" fontSize="small" />
     </div>
     {/* Render replies */}
     {/* {comment.replies &&
@@ -222,7 +238,7 @@ const Commentlist = ({ blogId,isAuthor,blog,sendNotification }) => {
   return (
     <>
     <ToastContainer/>
-    <Card className="ml-[14rem] w-[60rem] bg-gray-200">
+    <Card className="md:max-w-5xl w-full mt-10 lg:m-20 lg:ml-[15%] bg-gray-200">
       <Typography variant="h3" className="text-center mt-5">
         Comments ({comments.length})
       </Typography>
@@ -250,7 +266,7 @@ const Commentlist = ({ blogId,isAuthor,blog,sendNotification }) => {
           />
         ))}
 
-        <div className="w-[46rem] ml-16 rounded-lg border-[1px] bg-gray-50   min-h-32 mb-5 ">
+        <div className="md:m-10 m-3 rounded-lg border-[1px] bg-gray-50   min-h-32 mb-5 ">
           <div className="flex">
             <img
               src={Userimg}
@@ -265,27 +281,24 @@ const Commentlist = ({ blogId,isAuthor,blog,sendNotification }) => {
                 Feb 8 2023
               </Typography>
             </div>
-            <div className="mt-3 ml-[60%] flex gap-4 mr-5">
-              <FavoriteIcon fontSize="small" className="mt-1" />
-              <MoreHorizIcon fontSize="medium" className="mt-1" />
-            </div>
           </div>
 
           <Typography className="max-w-[48rem] mr-5 mt-5 ml-5">
-            @Micheal_Gough Very straight-to-point article. Really worth time
-            reading. Thank you! But tools are just the instruments the UX
+           Thank you! But tools are just the instruments the UX
             designers. 
           </Typography>
 
           <div className="flex  ml-5 mt-5 mb-5 gap-4">
             <ReplyIcon className="w-3 h-3" />
             <Typography className="">Reply</Typography>
+            <FavoriteIcon fontSize="small" className="mt-1" />
+              <MoreHorizIcon fontSize="medium" className="mt-1" />
           </div>
         </div>
       </div>
 
       <div ref={commentPostRef}></div>
-      <div className="relative w-[32rem] mt-10 ml-[13rem] mb-24">
+      <div className="relative max-w-2xl md:ml-28 lg:ml-40 m-10  mb-24">
         <Typography className="text-lg font-semibold text-center">
           Add Comments
         </Typography>
@@ -298,7 +311,7 @@ const Commentlist = ({ blogId,isAuthor,blog,sendNotification }) => {
           onChange={(e) => setcomment(e.target.value)}
         />
         <div className="flex w-full justify-between py-1.5">
-          <div className="flex gap-5 ml-[50%]">
+          <div className="flex gap-5 ml-[30%]">
             <Button size="sm" color="red" variant="text" className="rounded-md">
               Cancel
             </Button>

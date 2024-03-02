@@ -55,7 +55,7 @@ import { Input, Checkbox } from "@material-tailwind/react";
 import { Loader } from "../../../components/Loading/Loader";
 import { useSelector, useDispatch } from "react-redux";
 import { setUpdateInfo } from "../../../Redux/UserSlice";
-import {LogoutDetails} from '../../../Redux/UserSlice'
+import { LogoutDetails } from "../../../Redux/UserSlice";
 import {
   UpdateUser,
   CreateSkill,
@@ -76,17 +76,17 @@ import { GrGroup } from "react-icons/gr";
 import ChangeName from "../../../components/Userside/edituser/ChangeName";
 import ChangePass from "../../../components/Userside/edituser/ChangePass";
 import MonetizationOnOutlinedIcon from "@mui/icons-material/MonetizationOnOutlined";
-import AccountBoxIcon from '@mui/icons-material/AccountBox';
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import { GetUserInfo } from "../../../services/UserApi";
 function UserProfile() {
-  const navigate =useNavigate()
+  const navigate = useNavigate();
   const { userinfo } = useSelector((state) => state.user);
   const { premiumuserinfo } = useSelector((state) => state.user);
   const [skills, setSkills] = useState([]);
-  const [follows,setfollows]=useState({
-    followers:0,
-    followings:0
-  })
+  const [follows, setfollows] = useState({
+    followers: 0,
+    followings: 0,
+  });
 
   const [skillopen, setskillOpen] = useState(false);
   const [skill, setSkill] = useState({ skill: "", rateofskills: 0 });
@@ -94,7 +94,7 @@ function UserProfile() {
 
   const [skilleditopen, setskilleditopen] = useState(false);
   const [selectedskillId, setselectedskillId] = useState(null);
-  
+
   const fetchskills = async () => {
     try {
       const response = await ListSkills(userinfo.id);
@@ -104,22 +104,21 @@ function UserProfile() {
     }
   };
 
-  const fetchfollows=async()=>{
+  const fetchfollows = async () => {
     try {
-      const ress = await GetUserInfo(userinfo.id)
+      const ress = await GetUserInfo(userinfo.id);
       setfollows({
-        followers:ress.data.followers_count,
-        followings:ress.data.followings_count
-      })
-
+        followers: ress.data.followers_count,
+        followings: ress.data.followings_count,
+      });
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-  }
+  };
   useEffect(() => {
-    document.title="InsighIT | Profile";
+    document.title = "InsighIT | Profile";
     fetchskills();
-    fetchfollows()
+    fetchfollows();
   }, [userinfo]);
 
   const [loading, setLoading] = useState(false);
@@ -179,48 +178,49 @@ function UserProfile() {
   const handleaboutOpen = () => setaboutOpen((cur) => !cur);
 
   const Handlesavebio = async () => {
-    if (bio.trim() && isNaN(bio)){
+    if (bio.trim() && isNaN(bio)) {
+      try {
+        const response = await UpdateUser(userinfo.id, { bio });
 
-    
-    try {
-      const response = await UpdateUser(userinfo.id, { bio });
+        toast.success("bio updated succussfully");
 
-      toast.success("bio updated succussfully");
-
-      dispatch(
-        setUpdateInfo({
-          updatedData: {
-            userinfo: { bio: response.data.bio },
-          },
-        })
-      );
-      // handleloading()
-      setaboutOpen(false);
-    } catch (error) {
-      // handleloading()
-      console.error(error);
+        dispatch(
+          setUpdateInfo({
+            updatedData: {
+              userinfo: { bio: response.data.bio },
+            },
+          })
+        );
+        // handleloading()
+        setaboutOpen(false);
+      } catch (error) {
+        // handleloading()
+        console.error(error);
+      }
+    } else {
+      toast.error("Invalid Input");
     }
-  }else{
-    toast.error("Invalid Input")
-  }
   };
 
   const handleSkillEditOpen = () => setskilleditopen(true);
 
-  const [prevskill ,setprevskill] = useState("")
+  const [prevskill, setprevskill] = useState("");
   const handleskilledit = (selectedSkill) => {
     setSkill({ ...selectedSkill });
-    setprevskill(selectedSkill.skill)
+    setprevskill(selectedSkill.skill);
     setselectedskillId(selectedSkill.id);
-    
+
     handleSkillEditOpen();
   };
 
   const handleskilleditsubmit = async () => {
+    const isSkillExists = skills.some(
+      (existingSkill) =>
+        existingSkill.skill === skill.skill.trim() &&
+        prevskill !== existingSkill.skill
+    );
 
-    const isSkillExists = skills.some(existingSkill => existingSkill.skill === skill.skill.trim() && prevskill !== existingSkill.skill );
-
-    if (skill.skill.trim() && !isSkillExists && isNaN(skill.skill)){
+    if (skill.skill.trim() && !isSkillExists && isNaN(skill.skill)) {
       try {
         const res = await EditSkill(selectedskillId, skill);
         fetchskills();
@@ -231,11 +231,9 @@ function UserProfile() {
         toast.error("Error occurred during skill edit");
       }
       setskilleditopen(false);
-
-    }else{
+    } else {
       toast.error("Skill already exists or invalid skill name");
     }
-   
   };
 
   const handleSkilldelete = async () => {
@@ -243,7 +241,6 @@ function UserProfile() {
       const ress = await DeleteSkill(selectedskillId);
       fetchskills();
       toast.success("Skill deleted succussfully!");
-      
     } catch (error) {
       console.error(error);
     }
@@ -253,16 +250,18 @@ function UserProfile() {
   const HandleSkillSubmit = async () => {
     const user_id = userinfo.id;
     const skillData = { ...skill, user_id };
-    
+
     // Check if the skill already exists in the skills array
-    const isSkillExists = skills.some(existingSkill => existingSkill.skill === skill.skill.trim());
-  
+    const isSkillExists = skills.some(
+      (existingSkill) => existingSkill.skill === skill.skill.trim()
+    );
+
     if (skill.skill.trim() && !isSkillExists && isNaN(skill.skill)) {
       try {
         const response = await CreateSkill(skillData);
         fetchskills();
         setSkill({ skill: "", rateofskills: 0 });
-  
+
         toast.success("Skill created successfully!");
         setskillOpen(false);
       } catch (error) {
@@ -339,12 +338,12 @@ function UserProfile() {
   return (
     <div className="">
       {loading && <Loader />}
-      
-      <div className="flex ml-12 mt-[1rem] h-auto  max-w-[80rem] ">
-        <div className="w-[40rem] min-h-[50rem] mt-8 bg-white shadow-2xl rounded-lg">
+
+      <div className="flex flex-col lg:flex-row ml-10 lg:ml-auto lg:mx-auto mt-[1rem] h-auto  max-w-6xl ">
+        <div className="lg:max-w-3xl max-w-xl min-h-[50rem] mt-8 bg-white shadow-2xl rounded-lg">
           {/* <Alert color="amber">A simple alert for showing message.</Alert> */}
-          <Card className="w-[30rem]  m-3 -mt-2.5 bg-gray-100 shadow-2xl">
-            <div className="w-[30rem]   flex relative">
+          <Card className="lg:max-w-3xl max-w-xl  m-3 -mt-2.5 bg-gray-100 shadow-2xl">
+            <div className="lg:max-w-3xl max-w-xl flex relative">
               {userinfo.cover_img ? (
                 <>
                   <img
@@ -355,7 +354,7 @@ function UserProfile() {
                   <input
                     id="dropzone-file"
                     type="file"
-                    accept="image/*" 
+                    accept="image/*"
                     className="hidden"
                     onChange={(e) => handlecoverimgUpload(e.target.files[0])}
                   />
@@ -392,7 +391,7 @@ function UserProfile() {
                     <input
                       id="dropzone-file"
                       type="file"
-                      accept="image/*" 
+                      accept="image/*"
                       className="hidden"
                       onChange={(e) => handlecoverimgUpload(e.target.files[0])}
                     />
@@ -401,7 +400,7 @@ function UserProfile() {
               )}
               <CameraAltIcon
                 color="info"
-                className="w-52 z-10 absolute mt-[10.6rem] ml-[28.4rem] cursor-pointer hover:text-blue-800"
+                className="w-52 z-10 absolute mt-[10.6rem] ml-[22.4rem] md:ml-[25rem] lg:ml-[28.4rem] cursor-pointer hover:text-blue-800"
                 onClick={() => document.getElementById("dropzone-file").click()}
               />
             </div>
@@ -460,12 +459,11 @@ function UserProfile() {
                       htmlFor="pro-file"
                       className="flex flex-col items-center justify-center w-32 h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
                     >
-                 
                       <input
                         id="pro-file"
                         type="file"
                         class="hidden"
-                        accept="image/*" 
+                        accept="image/*"
                         onChange={(e) =>
                           handleprofileimgUpload(e.target.files[0])
                         }
@@ -503,7 +501,7 @@ function UserProfile() {
                         id="pro-file"
                         type="file"
                         class="hidden"
-                        accept="image/*" 
+                        accept="image/*"
                         onChange={(e) =>
                           handleprofileimgUpload(e.target.files[0])
                         }
@@ -519,7 +517,7 @@ function UserProfile() {
             </div>
             <CameraAltIcon
               color="info"
-              className="absolute ml-[17.4rem] z-10 mt-[15.9rem] cursor-pointer hover:text-blue-800"
+              className="absolute lg:ml-[17.4rem] ml-[15.5rem] md:ml-[16.4rem] z-10 mt-[15.9rem] cursor-pointer hover:text-blue-800"
               onClick={() => document.getElementById("pro-file").click()}
             />
             <CardBody className="text-center relative">
@@ -545,7 +543,11 @@ function UserProfile() {
               {/* <span>
             Edit
             </span> */}
-              <InstagramIcon onClick={handleOpen} color="secondary" className="cursor-pointer" />
+              <InstagramIcon
+                onClick={handleOpen}
+                color="secondary"
+                className="cursor-pointer"
+              />
               <GitHubIcon />
               <LinkedInIcon color="primary" />
               {userinfo.is_premium && (
@@ -586,7 +588,7 @@ function UserProfile() {
                     </MenuItem>
                     <MenuItem
                       className="flex items-center gap-2 rounded"
-                     onClick={handleToggleChangePass}
+                      onClick={handleToggleChangePass}
                     >
                       <EditIcon fontSize="small" />
 
@@ -610,7 +612,6 @@ function UserProfile() {
               />
               <ChangePass
                 isOpen={isChangePassOpen}
-                
                 userinfo={userinfo}
                 onClose={handleToggleChangePass}
               />
@@ -632,7 +633,8 @@ function UserProfile() {
                   {premiumuserinfo?.subscription_price_basic}
                 </Typography>
                 <Typography variant="h6" color="blue-gray">
-                  Subscription Basic Yearly:{premiumuserinfo?.sub_price_basic_yr}
+                  Subscription Basic Yearly:
+                  {premiumuserinfo?.sub_price_basic_yr}
                 </Typography>
                 <Typography variant="h6" color="blue-gray">
                   Subscription Standard Monthly:
@@ -844,15 +846,22 @@ function UserProfile() {
           </Card>
         </Dialog>
 
-        <div className="w-[60rem] ml-5 min-h-[50rem] bg-white shadow-2xl rounded-lg">
+        <div className="md:max-w-6xl w-full m-5 ml-0 lg:ml-5 min-h-[50rem] bg-white shadow-2xl rounded-lg">
           <div className="">
             <Tabs value="profile" className="mt-5 ml-2 mr-2">
               <TabsHeader>
                 {data.map(({ label, value, icon }) => (
                   <Tab key={value} value={value}>
                     <div className="flex items-center gap-2">
-                      {React.createElement(icon, { className: "w-5 h-5" })}
-                      {label}
+                      <div className="hidden xl:flex items-center">
+                        {/* Show label and icon for md and larger screens */}
+                        {React.createElement(icon, { className: "w-5 h-5" })}
+                        {label}
+                      </div>
+                      <div className="xl:hidden flex items-center">
+                        {/* Show only icon for screens smaller than md */}
+                        {React.createElement(icon, { className: "w-5 h-5" })}
+                      </div>
                     </div>
                   </Tab>
                 ))}
@@ -862,7 +871,7 @@ function UserProfile() {
                   <TabPanel key={value} value={value}>
                     {value === "profile" && (
                       <>
-                        <Card className="w-[50rem]  h-auto mt-5 bg-gray-100 shadow-2xl">
+                        <Card className="w-[45rem]  h-auto mt-5 bg-gray-100 shadow-2xl">
                           <Typography
                             variant="h5"
                             color="blue-gray"
@@ -920,7 +929,7 @@ function UserProfile() {
                           // handler={handleaboutOpen}
                           className="bg-transparent shadow-none"
                         >
-                          <Card className="mx-auto w-[30rem]">
+                          <Card className="mx-auto max-w-2xl">
                             <CardBody className="flex flex-col gap-4">
                               <Typography variant="h4" color="blue-gray">
                                 About Me
@@ -959,7 +968,6 @@ function UserProfile() {
                                 className="mt-4 flex justify-center"
                               >
                                 <Typography
-                                
                                   variant="small"
                                   color="black"
                                   className="ml-1 font-bold"
@@ -972,7 +980,7 @@ function UserProfile() {
                           </Card>
                         </Dialog>
 
-                        <Card className="w-[50rem]  mt-5 bg-gray-100 shadow-2xl">
+                        <Card className="max-w-5xl  mt-5 bg-gray-100 shadow-2xl">
                           <Typography
                             variant="h5"
                             color="blue-gray"
@@ -982,7 +990,7 @@ function UserProfile() {
                           </Typography>
                           {skills && skills.length > 0 ? (
                             skills.map((skill) => (
-                              <div className="max-w-2xl ml-10 mb-10">
+                              <div className="max-w-5xl ml-10 mb-10">
                                 <div className="mb-2 flex items-center justify-between gap-4">
                                   <Typography color="blue-gray" variant="h6">
                                     {skill.skill}
@@ -1039,8 +1047,6 @@ function UserProfile() {
           </div>
         </div>
       </div>
-
-    
     </div>
   );
 }
