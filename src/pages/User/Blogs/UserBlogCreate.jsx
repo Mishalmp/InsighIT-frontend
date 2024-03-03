@@ -156,11 +156,7 @@ function UserBlogCreate() {
     <>
       {loading && <Loader />}
       <ToastContainer />
-    
-      <Typography className="text-center font-semibold text-2xl -ml-24 mt-10">
-        Write Blog
-      </Typography>
-      <Breadcrumbs className="ml-32 w-36 -mt-5">
+      <Breadcrumbs className="xl:ml-32 ml-5 w-36 mt-5">
             <div onClick={() => navigate("/User/Home/")} className="opacity-60">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -171,20 +167,24 @@ function UserBlogCreate() {
                 <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
               </svg>
             </div>
-            <div className="opacity-60">
-              <span>Create Blog</span>
+            <div className="opacity-60 text-center ">
+              <span className="md:text-sm text-xs ">Create Blog</span>
             </div>
           </Breadcrumbs>
+      <Typography className="text-center font-semibold text-2xl lg:-ml-24 mt-10">
+        Write Blog
+      </Typography>
+
       <Button
         variant="gradient"
         onClick={handleOpen}
-        className="float-right mr-80 -mt-10"
+        className="float-right xl:mr-80 lg:mr-40 mr-2 -mt-10 md:w-36 w-28 md:text-xs"
       >
-        How to write?
+        Demo
       </Button>
-      <Card className="w-[60rem]  m-10 ml-[15%] bg-gray-50 shadow-2xl">
+      <Card className="lg:w-[60rem] md:w-[40rem] w-full  m-10 xl:ml-[20%] md:ml-20 ml-0 bg-gray-50 shadow-2xl">
 
-        <div className="grid grid-cols-2" >
+        <div className="grid lg:grid-cols-2" >
           <div>
         <Typography className="text-center font-semibold mt-10">
           Title{" "}
@@ -281,7 +281,7 @@ function UserBlogCreate() {
 
         <div>
         
-          <div className="flex  ml-[26rem] mb-5 mt-10">
+          <div className="flex ml-[40%] mb-5 mt-10">
             <Typography className="text-center font-semibold">
               Blog Content{" "}
             </Typography>
@@ -327,7 +327,7 @@ function UserBlogCreate() {
             Video Upload 
           </Typography>
           <input
-            className="block w-[23rem] mt-5 text-sm ml-10 text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+            className="block lg:w-[23rem] w-56 mt-5 text-sm md:ml-10 text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
             id="file_input"
             type="file"
             accept="video/*"
