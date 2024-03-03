@@ -197,7 +197,7 @@ function UserBlogCreate() {
             label="Title..."
           />
         </div>
-        <div className="w-80 mt-12 mb-10 ml-20 gap-6">
+        <div className="md:w-80 w-64 mt-12 mb-10 ml-20 gap-6">
           <Typography className="text-center font-semibold">Topic</Typography>
           <Select
             variant="outlined"
@@ -218,16 +218,16 @@ function UserBlogCreate() {
           <Typography className="text-center font-semibold">
           Banner Image{" "}
         </Typography>
-        <div className="flex items-center justify-center ml-10 mt-5 w-[25rem] mb-10">
+        <div className="flex items-center justify-center ml-10 mt-5 w-[23rem] md:w-[25rem] mb-10">
           <label
             htmlFor="dropzone-file"
-            className="flex flex-col items-center justify-center w-[23rem]  h-40 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
+            className="flex flex-col items-center justify-center w-[15rem]  xs:w-[23rem]  h-40 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
           >
             <div className="flex flex-col items-center justify-center ">
               {imageFile ? (
                 <>
                   <img
-                    className="w-[23rem]  h-40 mt-10 mb-4"
+                    className="w-[15rem]  xs:w-[23rem]  h-40 mt-10 mb-4"
                     src={URL.createObjectURL(imageFile)}
                     alt="Selected Image"
                   />
@@ -327,7 +327,7 @@ function UserBlogCreate() {
             Video Upload 
           </Typography>
           <input
-            className="block lg:w-[23rem] w-56 mt-5 text-sm md:ml-10 text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+            className="block lg:w-[23rem] sm:w-56 w-48 mt-5 text-sm md:ml-10 text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
             id="file_input"
             type="file"
             accept="video/*"
@@ -340,7 +340,7 @@ function UserBlogCreate() {
               defaultValue={ispremium}
               onClick={(e) => setisPremium(!ispremium)}
             />
-            <Typography className="mt-3 ml-2">Premium Blog </Typography>
+            <Typography className="mt-3 ml-1 text-sm">Premium Blog </Typography>
           </div>
         )}
         </div>

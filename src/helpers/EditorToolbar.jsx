@@ -97,7 +97,7 @@ export const QuillToolbar = ({onaicontent}) =>{
   };
 
 return (
-  <div id="toolbar" className="lg:h-[5rem] h-[8rem] w-[80%] ml-[10%] mb-10">
+  <div id="toolbar" className="lg:h-[5rem] sm:h-[8rem] h-[10rem] w-[80%] ml-[10%] mb-10">
     <span className="ql-formats">
       <select className="ql-font" defaultValue="arial">
         <option value="arial">Arial</option>
