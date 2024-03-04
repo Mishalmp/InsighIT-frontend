@@ -334,7 +334,7 @@ function UserProfile() {
   const handleToggleChangeName = () => setChangeNameOpen((prev) => !prev);
   const handleToggleChangePass = () => setChangePassOpen((prev) => !prev);
 
-  console.log(premiumuserinfo, "is upgradeeddd");
+  // console.log(premiumuserinfo, "is upgradeeddd");
   return (
     <div className="">
       {loading && <Loader />}
@@ -400,7 +400,7 @@ function UserProfile() {
               )}
               <CameraAltIcon
                 color="info"
-                className="w-52 z-10 absolute mt-[10.6rem] ml-[22.4rem] md:ml-[25rem] lg:ml-[28.4rem] cursor-pointer hover:text-blue-800"
+                className="w-52 z-10 absolute mt-[10.6rem] ml-[25.4rem] md:ml-[33rem] lg:ml-[23.4rem] cursor-pointer hover:text-blue-800"
                 onClick={() => document.getElementById("dropzone-file").click()}
               />
             </div>
@@ -517,7 +517,7 @@ function UserProfile() {
             </div>
             <CameraAltIcon
               color="info"
-              className="absolute lg:ml-[17.4rem] ml-[15.5rem] md:ml-[16.4rem] z-10 mt-[15.9rem] cursor-pointer hover:text-blue-800"
+              className="absolute lg:ml-[15.4rem] ml-[16.5rem] md:ml-[18.7rem] z-10 mt-[15.9rem] cursor-pointer hover:text-blue-800"
               onClick={() => document.getElementById("pro-file").click()}
             />
             <CardBody className="text-center relative">
