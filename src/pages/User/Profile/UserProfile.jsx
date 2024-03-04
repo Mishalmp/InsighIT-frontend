@@ -339,7 +339,7 @@ function UserProfile() {
     <div className="">
       {loading && <Loader />}
 
-      <div className="flex flex-col lg:flex-row ml-10 lg:ml-auto lg:mx-auto mt-[1rem] h-auto  max-w-6xl ">
+      <div className="flex flex-col lg:flex-row md:ml-10 ml-5 lg:ml-auto lg:mx-auto mt-[1rem] h-auto  max-w-6xl ">
         <div className="lg:max-w-3xl max-w-xl min-h-[50rem] mt-8 bg-white shadow-2xl rounded-lg">
           {/* <Alert color="amber">A simple alert for showing message.</Alert> */}
           <Card className="lg:max-w-3xl max-w-xl  m-3 -mt-2.5 bg-gray-100 shadow-2xl">
@@ -678,7 +678,7 @@ function UserProfile() {
             )}
           </Card>
 
-          <Card className="w-[30rem] m-3 mt-5 bg-gray-100 shadow-2xl">
+          <Card className="lg:max-w-3xl max-w-xl m-3 mt-5 bg-gray-100 shadow-2xl">
             <Typography variant="h5" color="blue-gray" className="m-5 ml-12">
               Skills{" "}
               <EditIcon
@@ -871,7 +871,7 @@ function UserProfile() {
                   <TabPanel key={value} value={value}>
                     {value === "profile" && (
                       <>
-                        <Card className="w-[45rem]  h-auto mt-5 bg-gray-100 shadow-2xl">
+                        <Card className="max-w-6xl  h-auto mt-5 bg-gray-100 shadow-2xl">
                           <Typography
                             variant="h5"
                             color="blue-gray"
@@ -980,7 +980,7 @@ function UserProfile() {
                           </Card>
                         </Dialog>
 
-                        <Card className="max-w-5xl  mt-5 bg-gray-100 shadow-2xl">
+                        <Card className="max-w-6xl  mt-5 bg-gray-100 shadow-2xl">
                           <Typography
                             variant="h5"
                             color="blue-gray"
