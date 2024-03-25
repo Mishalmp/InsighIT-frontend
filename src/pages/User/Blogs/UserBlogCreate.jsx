@@ -172,7 +172,7 @@ function UserBlogCreate() {
             </div>
           </Breadcrumbs>
       <Typography className="text-center font-semibold text-2xl lg:-ml-24 mt-10">
-        Write Blog
+        Write Blog <span className="text-md font-normal">(Write with AI) </span>
       </Typography>
 
       <Button
@@ -324,7 +324,7 @@ function UserBlogCreate() {
       <div className="grid grid-cols-2 ml-10" >
         <div className="mt-10 mb-10">
           <Typography className="text-center font-semibold">
-            Video Upload 
+            Video Upload (max 5MB)
           </Typography>
           <input
             className="block lg:w-[23rem] sm:w-56 w-48 mt-5 text-sm md:ml-10 text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
