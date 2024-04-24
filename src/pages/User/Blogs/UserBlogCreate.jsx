@@ -145,7 +145,7 @@ function UserBlogCreate() {
         
       } catch (error) {
         console.error(error);
-        toast.error("Write correct topic");
+        toast.error("Sorry plan Expired");
       }
     } else {
       toast.error("field empty");
@@ -172,7 +172,7 @@ function UserBlogCreate() {
             </div>
           </Breadcrumbs>
       <Typography className="text-center font-semibold text-2xl lg:-ml-24 mt-10">
-        Write Blog <span className="text-md font-normal">(Write with AI) </span>
+        Write Blog <span className="text-md font-normal">(Write with AI - (GPT_API_KEY Expired now 😓)) </span>
       </Typography>
 
       <Button
